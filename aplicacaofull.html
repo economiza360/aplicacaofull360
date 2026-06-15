@@ -738,480 +738,128 @@
   </section>
 
   <div class="divider"></div>
-<!-- ===== FORMULÁRIO COM 7 BLOCOS DE PONTUAÇÃO ===== -->
+  <!-- FAQ -->
+  <section style="max-width:750px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">Perguntas <span style="color:#e8491d;">Frequentes</span></h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">Tudo o que você precisa saber antes de gerar seu relatório.</p>
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;"><h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">📌 O que exatamente eu recebo por R$ 19,99?</h3><p style="color:#999; font-size:14px; line-height:1.7;">Relatório completo com score, benchmark, estimativa de perdas + reunião de diagnóstico gratuita com especialista.</p></div>
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;"><h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">📌 Como funciona a reunião de diagnóstico?</h3><p style="color:#999; font-size:14px; line-height:1.7;">Após gerar o relatório, você agenda uma reunião gratuita onde interpretamos os dados e montamos o plano de ação.</p></div>
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;"><h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">📌 Quanto custa para resolver o problema?</h3><p style="color:#999; font-size:14px; line-height:1.7;">Modelo de parceria — <strong style="color:#e8491d;">você paga conforme o resultado gerado.</strong></p></div>
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;"><h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">📌 Qualquer empresa pode usar?</h3><p style="color:#999; font-size:14px; line-height:1.7;">Sim. Funciona para qualquer porte e setor. Se tem CNPJ, funciona.</p></div>
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;"><h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">📌 Meus dados estão seguros?</h3><p style="color:#999; font-size:14px; line-height:1.7;">100% seguros. Criptografia + LGPD. Não compartilhamos com terceiros.</p></div>
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;"><h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">📌 Como funciona o pagamento?</h3><p style="color:#999; font-size:14px; line-height:1.7;">PIX — rápido, seguro, confirmação instantânea.</p></div>
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px;"><h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">📌 E se eu não gostar?</h3><p style="color:#999; font-size:14px; line-height:1.7;">Garantia de 7 dias. Devolvemos 100% sem perguntas.</p></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FORMULÁRIO -->
+  <section id="secao-formulario" style="max-width:700px; margin:0 auto; padding:0 20px 60px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="display:inline-block; background:rgba(232,73,29,0.15); border:1px solid #e8491d; color:#e8491d; padding:6px 18px; border-radius:50px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">Último Passo</div>
+      <h2 style="font-size:32px; font-weight:800; margin-bottom:10px;">Gere Seu Relatório <span style="color:#e8491d;">Agora</span></h2>
+      <p style="color:#999; font-size:16px;">Preencha os dados abaixo para o sistema calcular com exatidão.</p>
+      <p style="color:#666; font-size:13px;">🔒 Seus dados estão protegidos pela LGPD.</p>
+    </div>
     <form id="formRelatorio" style="background:#111; border:1px solid #222; border-radius:16px; padding:40px 30px;">
 
-      <!-- Estilo dos inputs -->
-      <style>
-        .form-group {
-          margin-bottom: 22px;
-        }
+      <div class="bloco-titulo" style="margin-top:0;"><div class="bloco-numero">📋</div><div class="bloco-nome">Dados da Empresa</div></div>
 
-        .form-group label {
-          display: block;
-          font-size: 14px;
-          font-weight: 600;
-          color: #ccc;
-          margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group select {
-          width: 100%;
-          padding: 14px 16px;
-          background: #1a1a1a;
-          border: 1px solid #333;
-          border-radius: 8px;
-          color: #fff;
-          font-size: 15px;
-          transition: border-color 0.3s;
-          -webkit-appearance: none;
-          appearance: none;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-          outline: none;
-          border-color: #e8491d;
-        }
-
-        .form-group input::placeholder {
-          color: #555;
-        }
-
-        .form-group select {
-          cursor: pointer;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6.5 6.5-6.5'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 16px center;
-          padding-right: 40px;
-        }
-
-        .form-group select option {
-          background: #1a1a1a;
-          color: #fff;
-        }
-
-        .form-row {
-          display: flex;
-          gap: 15px;
-        }
-
-        .form-row .form-group {
-          flex: 1;
-        }
-
-        .bloco-titulo {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 20px;
-          margin-top: 35px;
-          padding-bottom: 12px;
-          border-bottom: 2px solid #e8491d;
-        }
-
-        .bloco-numero {
-          background: #e8491d;
-          color: #fff;
-          min-width: 36px;
-          height: 36px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 16px;
-          font-weight: 800;
-        }
-
-        .bloco-nome {
-          font-size: 18px;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .bloco-desc {
-          font-size: 13px;
-          color: #888;
-          margin-bottom: 20px;
-        }
-
-        .sub-perguntas {
-          display: none;
-          padding-left: 15px;
-          border-left: 2px solid #e8491d;
-          margin-top: 10px;
-          margin-bottom: 10px;
-        }
-
-        .sub-perguntas.ativo {
-          display: block;
-        }
-
-        @media (max-width: 600px) {
-          .form-row {
-            flex-direction: column;
-            gap: 0;
-          }
-        }
-      </style>
-
-      <!-- ============================== -->
-      <!-- DADOS BÁSICOS DA EMPRESA       -->
-      <!-- ============================== -->
-      <div class="bloco-titulo" style="margin-top:0;">
-        <div class="bloco-numero">📋</div>
-        <div class="bloco-nome">Dados da Empresa</div>
-      </div>
-      <p class="bloco-desc">Informações básicas para gerar seu relatório personalizado.</p>
-
-      <!-- CNPJ -->
-      <div class="form-group">
-        <label>CNPJ da Empresa *</label>
-        <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" required>
-      </div>
-
-      <!-- Linha: Setor + Estado -->
-      <div class="form-row">
-        <div class="form-group">
-          <label>Setor de Atuação *</label>
-          <select name="setor" required>
-            <option value="">Selecione o setor</option>
-            <option value="comercio">Comércio</option>
-            <option value="servicos">Serviços</option>
-            <option value="industria">Indústria</option>
-            <option value="tecnologia">Tecnologia</option>
-            <option value="saude">Saúde</option>
-            <option value="educacao">Educação</option>
-            <option value="construcao">Construção Civil</option>
-            <option value="alimentacao">Alimentação</option>
-            <option value="transporte">Transporte e Logística</option>
-            <option value="agronegocio">Agronegócio</option>
-            <option value="advocacia">Advocacia</option>
-            <option value="contabilidade">Contabilidade</option>
-            <option value="outro">Outro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Estado *</label>
-          <select name="estado" required>
-            <option value="">Selecione</option>
-            <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
-            <option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option>
-            <option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option>
-            <option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option>
-            <option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option>
-            <option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option>
-            <option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option>
-            <option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option>
-            <option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Formato -->
-      <div class="form-group">
-        <label>Formato da Empresa *</label>
-        <select name="formato" required>
-          <option value="">Selecione</option>
-          <option value="mei">MEI</option>
-          <option value="me">ME (Microempresa)</option>
-          <option value="epp">EPP (Empresa de Pequeno Porte)</option>
-          <option value="ltda">LTDA</option>
-          <option value="sa">S/A</option>
-          <option value="eireli">EIRELI</option>
-          <option value="slu">SLU (Sociedade Limitada Unipessoal)</option>
-          <option value="outro">Outro</option>
-        </select>
-      </div>
-
-      <!-- Faturamento -->
-      <div class="form-group">
-        <label>Faturamento Mensal *</label>
-        <select name="faturamento" required>
-          <option value="">Selecione</option>
-          <option value="ate-50k">Até R$ 50 mil</option>
-          <option value="50k-100k">R$ 50 mil a R$ 100 mil</option>
-          <option value="100k-300k">R$ 100 mil a R$ 300 mil</option>
-          <option value="300k-500k">R$ 300 mil a R$ 500 mil</option>
-          <option value="500k-1m">R$ 500 mil a R$ 1 milhão</option>
-          <option value="1m-5m">R$ 1 milhão a R$ 5 milhões</option>
-          <option value="5m+">Acima de R$ 5 milhões</option>
-        </select>
-      </div>
-
-      <!-- Contato -->
-      <div style="width:100%; height:1px; background:#222; margin:30px 0;"></div>
-      <p style="color:#999; font-size:13px; text-align:center; margin-bottom:25px;">
-        📧 Dados de contato para envio do relatório:
-      </p>
+      <div class="form-group"><label>CNPJ *</label><input type="text" id="cnpj" placeholder="00.000.000/0000-00" required></div>
 
       <div class="form-row">
-        <div class="form-group">
-          <label>E-mail Corporativo *</label>
-          <input type="email" name="email" placeholder="seu@empresa.com.br" required>
-        </div>
-        <div class="form-group">
-          <label>WhatsApp *</label>
-          <input type="tel" name="whatsapp" id="whatsapp" placeholder="(11) 99999-9999" required>
-        </div>
+        <div class="form-group"><label>Setor *</label><select name="setor" required><option value="">Selecione</option><option>Comércio</option><option>Serviços</option><option>Indústria</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option><option>Construção Civil</option><option>Alimentação</option><option>Transporte</option><option>Agronegócio</option><option>Advocacia</option><option>Contabilidade</option><option>Outro</option></select></div>
+        <div class="form-group"><label>Estado *</label><select name="estado" required><option value="">UF</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></div>
       </div>
 
-      <!-- ============================== -->
-      <!-- BLOCO 1: PLANO DE SAÚDE        -->
-      <!-- ============================== -->
-      <div class="bloco-titulo">
-        <div class="bloco-numero">1</div>
-        <div class="bloco-nome">Plano de Saúde</div>
-      </div>
-      <p class="bloco-desc">Empresas com plano de saúde podem ter oportunidades significativas de redução de custos.</p>
+      <div class="form-group"><label>Formato *</label><select name="formato" required><option value="">Selecione</option><option>MEI</option><option>ME</option><option>EPP</option><option>LTDA</option><option>S/A</option><option>EIRELI</option><option>SLU</option><option>Outro</option></select></div>
 
-      <div class="form-group">
-        <label>Tem plano de saúde no CNPJ? *</label>
-        <select name="plano_saude" id="plano_saude" required>
-          <option value="">Selecione</option>
-          <option value="sim">Sim</option>
-          <option value="nao">Não</option>
-        </select>
+      <div class="form-group"><label>Faturamento Mensal *</label><select name="faturamento" required><option value="">Selecione</option><option>Até R$ 50 mil</option><option>R$ 50 mil a R$ 100 mil</option><option>R$ 100 mil a R$ 300 mil</option><option>R$ 300 mil a R$ 500 mil</option><option>R$ 500 mil a R$ 1 milhão</option><option>R$ 1 milhão a R$ 5 milhões</option><option>Acima de R$ 5 milhões</option></select></div>
+
+      <div style="width:100%;height:1px;background:#222;margin:30px 0;"></div>
+      <p style="color:#999;font-size:13px;text-align:center;margin-bottom:25px;">📧 Contato para envio do relatório:</p>
+
+      <div class="form-row">
+        <div class="form-group"><label>E-mail *</label><input type="email" name="email" placeholder="seu@empresa.com.br" required></div>
+        <div class="form-group"><label>WhatsApp *</label><input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required></div>
       </div>
 
-      <!-- Sub-perguntas Plano de Saúde -->
+      <!-- BLOCO 1: PLANO DE SAÚDE -->
+      <div class="bloco-titulo"><div class="bloco-numero">1</div><div class="bloco-nome">Plano de Saúde</div></div>
+      <p class="bloco-desc">Empresas com plano de saúde podem ter oportunidades significativas de redução.</p>
+      <div class="form-group"><label>Tem plano de saúde no CNPJ? *</label><select id="plano_saude" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
       <div class="sub-perguntas" id="sub_plano">
-        <div class="form-group">
-          <label>Quantas vidas no plano?</label>
-          <input type="number" name="plano_vidas" placeholder="Ex: 25">
-        </div>
-
-        <div class="form-group">
-          <label>Valor da mensalidade total *</label>
-          <select name="plano_mensalidade" id="plano_mensalidade">
-            <option value="">Selecione</option>
-            <option value="1k-3k">R$ 1 mil a R$ 3 mil</option>
-            <option value="3k-7k">R$ 3 mil a R$ 7 mil</option>
-            <option value="7k-12k">R$ 7 mil a R$ 12 mil</option>
-            <option value="12k+">Acima de R$ 12 mil</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Tempo de contrato *</label>
-          <select name="plano_tempo" id="plano_tempo">
-            <option value="">Selecione</option>
-            <option value="1-3">1 a 3 anos</option>
-            <option value="4-6">4 a 6 anos</option>
-            <option value="5-8">5 a 8 anos</option>
-            <option value="10+">Mais de 10 anos</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Quantas vidas?</label><input type="number" placeholder="Ex: 25"></div>
+        <div class="form-group"><label>Mensalidade total *</label><select id="plano_mensalidade"><option value="">Selecione</option><option value="1k-3k">R$ 1 mil a R$ 3 mil</option><option value="3k-7k">R$ 3 mil a R$ 7 mil</option><option value="7k-12k">R$ 7 mil a R$ 12 mil</option><option value="12k+">Acima de R$ 12 mil</option></select></div>
+        <div class="form-group"><label>Tempo de contrato *</label><select id="plano_tempo"><option value="">Selecione</option><option value="1-3">1 a 3 anos</option><option value="4-6">4 a 6 anos</option><option value="5-8">5 a 8 anos</option><option value="10+">Mais de 10 anos</option></select></div>
       </div>
 
-      <!-- ============================== -->
-      <!-- BLOCO 2: ENERGIA               -->
-      <!-- ============================== -->
-      <div class="bloco-titulo">
-        <div class="bloco-numero">2</div>
-        <div class="bloco-nome">Energia</div>
-      </div>
-      <p class="bloco-desc">Contas de energia elevadas geralmente escondem oportunidades de economia com mercado livre ou eficiência energética.</p>
+      <!-- BLOCO 2: ENERGIA -->
+      <div class="bloco-titulo"><div class="bloco-numero">2</div><div class="bloco-nome">Energia</div></div>
+      <p class="bloco-desc">Contas elevadas escondem oportunidades de economia.</p>
+      <div class="form-group"><label>Valor mensal da energia *</label><select id="energia" required><option value="">Selecione</option><option value="0">Abaixo de R$ 1 mil</option><option value="1k-3k">R$ 1 mil a R$ 3 mil</option><option value="3k-5k">R$ 3 mil a R$ 5 mil</option><option value="5k-10k">R$ 5 mil a R$ 10 mil</option><option value="10k-15k">R$ 10 mil a R$ 15 mil</option><option value="15k+">Acima de R$ 15 mil</option></select></div>
 
-      <div class="form-group">
-        <label>Valor mensal da conta de energia *</label>
-        <select name="energia" id="energia" required>
-          <option value="">Selecione</option>
-          <option value="0">Abaixo de R$ 1 mil</option>
-          <option value="1k-3k">R$ 1 mil a R$ 3 mil</option>
-          <option value="3k-5k">R$ 3 mil a R$ 5 mil</option>
-          <option value="5k-10k">R$ 5 mil a R$ 10 mil</option>
-          <option value="10k-15k">R$ 10 mil a R$ 15 mil</option>
-          <option value="15k+">Acima de R$ 15 mil</option>
-        </select>
-      </div>
-
-      <!-- ============================== -->
-      <!-- BLOCO 3: FORNECEDORES          -->
-      <!-- ============================== -->
-      <div class="bloco-titulo">
-        <div class="bloco-numero">3</div>
-        <div class="bloco-nome">Fornecedores</div>
-      </div>
-      <p class="bloco-desc">Quanto mais fornecedores, maior o potencial de renegociação e redução de custos.</p>
-
-      <div class="form-group">
-        <label>Tem fornecedores ativos? *</label>
-        <select name="tem_fornecedores" id="tem_fornecedores" required>
-          <option value="">Selecione</option>
-          <option value="sim">Sim</option>
-          <option value="nao">Não</option>
-        </select>
-      </div>
-
+      <!-- BLOCO 3: FORNECEDORES -->
+      <div class="bloco-titulo"><div class="bloco-numero">3</div><div class="bloco-nome">Fornecedores</div></div>
+      <p class="bloco-desc">Mais fornecedores = mais potencial de renegociação.</p>
+      <div class="form-group"><label>Tem fornecedores ativos? *</label><select id="tem_fornecedores" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
       <div class="sub-perguntas" id="sub_fornecedores">
-        <div class="form-group">
-          <label>Quantos fornecedores ativos atualmente? *</label>
-          <select name="qtd_fornecedores" id="qtd_fornecedores">
-            <option value="">Selecione</option>
-            <option value="1-2">1 a 2</option>
-            <option value="3-5">3 a 5</option>
-            <option value="6+">6 ou mais</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Quantos? *</label><select id="qtd_fornecedores"><option value="">Selecione</option><option value="1-2">1 a 2</option><option value="3-5">3 a 5</option><option value="6+">6 ou mais</option></select></div>
       </div>
 
-      <!-- ============================== -->
-      <!-- BLOCO 4: FINANCIAMENTOS        -->
-      <!-- ============================== -->
-      <div class="bloco-titulo">
-        <div class="bloco-numero">4</div>
-        <div class="bloco-nome">Financiamentos</div>
-      </div>
-      <p class="bloco-desc">Financiamentos ativos podem ter taxas acima do mercado — renegociação gera economia imediata.</p>
-
-      <div class="form-group">
-        <label>Tem financiamento ativo no CNPJ? *</label>
-        <select name="tem_financiamento" id="tem_financiamento" required>
-          <option value="">Selecione</option>
-          <option value="sim">Sim</option>
-          <option value="nao">Não</option>
-        </select>
-      </div>
-
+      <!-- BLOCO 4: FINANCIAMENTOS -->
+      <div class="bloco-titulo"><div class="bloco-numero">4</div><div class="bloco-nome">Financiamentos</div></div>
+      <p class="bloco-desc">Financiamentos podem ter taxas acima do mercado.</p>
+      <div class="form-group"><label>Tem financiamento ativo? *</label><select id="tem_financiamento" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
       <div class="sub-perguntas" id="sub_financiamento">
-        <div class="form-group">
-          <label>Quantos financiamentos ativos? *</label>
-          <select name="qtd_financiamento" id="qtd_financiamento">
-            <option value="">Selecione</option>
-            <option value="1-2">1 a 2</option>
-            <option value="3-5">3 a 5</option>
-            <option value="6+">6 ou mais</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Quantos? *</label><select id="qtd_financiamento"><option value="">Selecione</option><option value="1-2">1 a 2</option><option value="3-5">3 a 5</option><option value="6+">6 ou mais</option></select></div>
       </div>
 
-      <!-- ============================== -->
-      <!-- BLOCO 5: FUNCIONÁRIOS CLT      -->
-      <!-- ============================== -->
-      <div class="bloco-titulo">
-        <div class="bloco-numero">5</div>
-        <div class="bloco-nome">Funcionários CLT</div>
-      </div>
-      <p class="bloco-desc">Folha de pagamento é uma das maiores despesas. Quanto maior, mais oportunidade de otimização.</p>
-
-      <div class="form-group">
-        <label>Tem funcionários CLT? *</label>
-        <select name="tem_clt" id="tem_clt" required>
-          <option value="">Selecione</option>
-          <option value="sim">Sim</option>
-          <option value="nao">Não</option>
-        </select>
-      </div>
-
+      <!-- BLOCO 5: CLT -->
+      <div class="bloco-titulo"><div class="bloco-numero">5</div><div class="bloco-nome">Funcionários CLT</div></div>
+      <p class="bloco-desc">Folha de pagamento é uma das maiores despesas.</p>
+      <div class="form-group"><label>Tem funcionários CLT? *</label><select id="tem_clt" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
       <div class="sub-perguntas" id="sub_clt">
-        <div class="form-group">
-          <label>Quantos funcionários CLT? *</label>
-          <select name="qtd_clt" id="qtd_clt">
-            <option value="">Selecione</option>
-            <option value="1-9">1 a 9</option>
-            <option value="10-30">10 a 30</option>
-            <option value="31-60">31 a 60</option>
-            <option value="61+">Mais de 61</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Quantos? *</label><select id="qtd_clt"><option value="">Selecione</option><option value="1-9">1 a 9</option><option value="10-30">10 a 30</option><option value="31-60">31 a 60</option><option value="61+">Mais de 61</option></select></div>
       </div>
 
-      <!-- ============================== -->
-      <!-- BLOCO 6: DÍVIDA ATIVA          -->
-      <!-- ============================== -->
-      <div class="bloco-titulo">
-        <div class="bloco-numero">6</div>
-        <div class="bloco-nome">Dívida Ativa</div>
-      </div>
-      <p class="bloco-desc">Dívidas ativas podem ser renegociadas com grandes descontos — quanto maior, mais potencial.</p>
-
-      <div class="form-group">
-        <label>Tem dívida ativa no CNPJ? *</label>
-        <select name="tem_divida" id="tem_divida" required>
-          <option value="">Selecione</option>
-          <option value="sim">Sim</option>
-          <option value="nao">Não</option>
-        </select>
-      </div>
-
+      <!-- BLOCO 6: DÍVIDA -->
+      <div class="bloco-titulo"><div class="bloco-numero">6</div><div class="bloco-nome">Dívida Ativa</div></div>
+      <p class="bloco-desc">Dívidas podem ser renegociadas com grandes descontos.</p>
+      <div class="form-group"><label>Tem dívida ativa? *</label><select id="tem_divida" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
       <div class="sub-perguntas" id="sub_divida">
-        <div class="form-group">
-          <label>Valor aproximado da dívida ativa *</label>
-          <select name="valor_divida" id="valor_divida">
-            <option value="">Selecione</option>
-            <option value="ate-50k">Até R$ 50 mil</option>
-            <option value="50k-100k">R$ 50 mil a R$ 100 mil</option>
-            <option value="101k-499k">R$ 101 mil a R$ 499 mil</option>
-            <option value="500k-999k">R$ 500 mil a R$ 999 mil</option>
-            <option value="1m+">Acima de R$ 1 milhão</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Valor aproximado *</label><select id="valor_divida"><option value="">Selecione</option><option value="ate-50k">Até R$ 50 mil</option><option value="50k-100k">R$ 50 mil a R$ 100 mil</option><option value="101k-499k">R$ 101 mil a R$ 499 mil</option><option value="500k-999k">R$ 500 mil a R$ 999 mil</option><option value="1m+">Acima de R$ 1 milhão</option></select></div>
       </div>
 
-      <!-- ============================== -->
-      <!-- BLOCO 7: REVISÃO TRIBUTÁRIA    -->
-      <!-- ============================== -->
-      <div class="bloco-titulo">
-        <div class="bloco-numero">7</div>
-        <div class="bloco-nome">Revisão Tributária</div>
+      <!-- BLOCO 7: REVISÃO TRIBUTÁRIA -->
+      <div class="bloco-titulo"><div class="bloco-numero">7</div><div class="bloco-nome">Revisão Tributária</div></div>
+      <p class="bloco-desc">Sem revisão = impostos pagos a mais por anos.</p>
+      <div class="form-group"><label>Há quanto tempo não faz revisão? *</label><select id="revisao_tributaria" required><option value="">Selecione</option><option value="1ano">Há 1 ano</option><option value="2anos">Há 2 anos</option><option value="5anos">Há 5 anos</option><option value="nunca">Nunca fiz</option></select></div>
+
+      <!-- PREÇO + BOTÃO -->
+      <div style="width:100%;height:1px;background:#222;margin:35px 0;"></div>
+      <div style="background:#1a1208;border:2px solid #e8491d;border-radius:12px;padding:25px;text-align:center;margin-bottom:25px;">
+        <p style="color:#999;font-size:13px;margin-bottom:5px;">Investimento único:</p>
+        <p style="margin-bottom:5px;"><span style="text-decoration:line-through;color:#ff6b6b;font-size:18px;">R$ 497,00</span></p>
+        <p style="color:#e8491d;font-size:42px;font-weight:800;margin-bottom:5px;">R$ 19,99</p>
+        <p style="color:#999;font-size:13px;margin-bottom:15px;">PIX — confirmação instantânea</p>
+        <div style="display:inline-block;background:rgba(232,73,29,0.1);border:1px solid #e8491d;border-radius:8px;padding:8px 20px;"><p style="color:#e8491d;font-size:13px;font-weight:600;">🛡️ Garantia de 7 dias</p></div>
       </div>
-      <p class="bloco-desc">Empresas que não fazem revisão tributária pagam impostos a mais — às vezes por anos.</p>
-
-      <div class="form-group">
-        <label>Há quanto tempo não faz revisão tributária? *</label>
-        <select name="revisao_tributaria" id="revisao_tributaria" required>
-          <option value="">Selecione</option>
-          <option value="1ano">Há 1 ano</option>
-          <option value="2anos">Há 2 anos</option>
-          <option value="5anos">Há 5 anos</option>
-          <option value="nunca">Nunca fiz</option>
-        </select>
-      </div>
-
-      <!-- ============================== -->
-      <!-- BOX PREÇO + BOTÃO ENVIAR       -->
-      <!-- ============================== -->
-      <div style="width:100%; height:1px; background:#222; margin:35px 0;"></div>
-
-      <!-- Box de preço -->
-      <div style="background:#1a1208; border:2px solid #e8491d; border-radius:12px; padding:25px; text-align:center; margin-bottom:25px;">
-        <p style="color:#999; font-size:13px; margin-bottom:5px;">Investimento único:</p>
-        <p style="margin-bottom:5px;">
-          <span style="text-decoration:line-through; color:#ff6b6b; font-size:18px;">R$ 497,00</span>
-        </p>
-        <p style="color:#e8491d; font-size:42px; font-weight:800; margin-bottom:5px;">R$ 19,99</p>
-        <p style="color:#999; font-size:13px; margin-bottom:15px;">Pagamento via PIX — confirmação instantânea</p>
-        <div style="display:inline-block; background:rgba(232,73,29,0.1); border:1px solid #e8491d; border-radius:8px; padding:8px 20px;">
-          <p style="color:#e8491d; font-size:13px; font-weight:600;">🛡️ Garantia de 7 dias ou seu dinheiro de volta</p>
-        </div>
-      </div>
-
-      <!-- Botão de envio -->
-      <button type="submit" id="btnSubmit" style="
-        width:100%;
-        padding:20px;
-        background:#e8491d;
-        color:#fff;
-        font-size:20px;
-        font-weight:800;
-        border:none;
-        border-radius:10px;
-        cursor:pointer;
-        transition:all 0.3s;
-        letter-spacing:0.5px;
-      " onmouseover="this.style.background='#ff5722'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(232,73,29,0.4)';"
-         onmouseout="this.style.background='#e8491d'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-        🚀 GERAR MEU RELATÓRIO AGORA
-      </button>
-
-      <p style="text-align:center; color:#666; font-size:12px; margin-top:15px;">
-        Após o pagamento, você recebe o relatório no WhatsApp e no e-mail.<br>
-        Em seguida, agenda seu diagnóstico gratuito com nosso especialista.
-      </p>
-
+      <button type="submit" style="width:100%;padding:20px;background:#e8491d;color:#fff;font-size:20px;font-weight:800;border:none;border-radius:10px;cursor:pointer;">🚀 GERAR MEU RELATÓRIO AGORA</button>
+      <p style="text-align:center;color:#666;font-size:12px;margin-top:15px;">Após pagamento, receba no WhatsApp e e-mail.</p>
     </form>
+  </section>
+
+  <div class="divider"></div>
+<script>
+function toggleSub(a,b){document.getElementById(a).addEventListener('change',function(){var s=document.getElementById(b);if(this.value==='sim')s.classList.add('ativo');else s.classList.remove('ativo');})}
+toggleSub('plano_saude','sub_plano');toggleSub('tem_fornecedores','sub_fornecedores');toggleSub('tem_financiamento','sub_financiamento');toggleSub('tem_clt','sub_clt');toggleSub('tem_divida','sub_divida');
+function calcScore(){var s={b1:0,b2:0,b3:0,b4:0,b5:0,b6:0,b7:0};if(document.getElementById('plano_saude').value==='sim'){s.b1+=20;var m=document.getElementById('plano_mensalidade').value;if(m==='1k-3k')s.b1+=5;else if(m==='3k-7k')s.b1+=15;else if(m==='7k-12k')s.b1+=35;else if(m==='12k+')s.b1+=50;var t=document.getElementById('plano_tempo').value;if(t==='1-3')s.b1+=5;else if(t==='4-6')s.b1+=7;else if(t==='5-8')s.b1+=14;else if(t==='10+')s.b1+=20;}if(s.b1>100)s.b1=100;var e=document.getElementById('energia').value;if(e==='1k-3k')s.b2=10;else if(e==='3k-5k')s.b2=30;else if(e==='5k-10k')s.b2=40;else if(e==='10k-15k')s.b2=50;else if(e==='15k+')s.b2=100;if(document.getElementById('tem_fornecedores').value==='sim'){var f=document.getElementById('qtd_fornecedores').value;if(f==='1-2')s.b3=15;else if(f==='3-5')s.b3=25;else if(f==='6+')s.b3=50;}if(document.getElementById('tem_financiamento').value==='sim'){var fi=document.getElementById('qtd_financiamento').value;if(fi==='1-2')s.b4=15;else if(fi==='3-5')s.b4=25;else if(fi==='6+')s.b4=50;}if(document.getElementById('tem_clt').value==='sim'){var c=document.getElementById('qtd_clt').value;if(c==='10-30')s.b5=15;else if(c==='31-60')s.b5=25;else if(c==='61+')s.b5=60;}if(document.getElementById('tem_divida').value==='sim'){var d=document.getElementById('valor_divida').value;if(d==='ate-50k')s.b6=5;else if(d==='50k-100k')s.b6=10;else if(d==='101k-499k')s.b6=15;else if(d==='500k-999k')s.b6=30;else if(d==='1m+')s.b6=40;}var r=document.getElementById('revisao_tributaria').value;if(r==='1ano')s.b7=10;else if(r==='2anos')s.b7=20;else if(r==='5anos')s.b7=40;else if(r==='nunca')s.b7=60;return s;}
+function showResult(s){var mx={b1:100,b2:100,b3:50,b4:50,b5:60,b6:40,b7:60},tot=s.b1+s.b2+s.b3+s.b4+s.b5+s.b6+s.b7,pct=(tot/460)*100;document.getElementById('scoreTotalDisplay').textContent=tot;setTimeout(function(){document.getElementById('barraTotal').style.width=pct+'%';},300);var nv,co;if(pct>=70){nv='🔴 POTENCIAL MUITO ALTO';co='#ff4444';}else if(pct>=50){nv='🟠 POTENCIAL ALTO';co='#e8491d';}else if(pct>=30){nv='🟡 POTENCIAL MODERADO';co='#f1c40f';}else{nv='🟢 POTENCIAL BAIXO';co='#2ecc71';}document.getElementById('nivelTexto').textContent=nv;document.getElementById('nivelTexto').style.color=co;for(var i=1;i<=7;i++){var k='b'+i,m=mx[k],p=(s[k]/m)*100;document.getElementById('scoreBloco'+i).textContent=s[k]+'/'+m;(function(x,v){setTimeout(function(){document.getElementById('barraBloco'+x).style.width=v+'%';},300+x*150);})(i,p);}var msg;if(pct>=70)msg='⚠️ <strong style="color:#ff4444">Atenção:</strong> Potencial muito alto. <strong style="color:#e8491d">Empresas assim recuperam R$ 30 mil a R$ 80 mil/ano.</strong>';else if(pct>=50)msg='📊 <strong style="color:#e8491d">Alto potencial.</strong> Empresas assim recuperam R$ 25 mil a R$ 50 mil/ano.';else if(pct>=30)msg='📈 <strong style="color:#f1c40f">Potencial moderado.</strong> Mesmo assim, economia de R$ 10 mil a R$ 25 mil/ano.';else msg='✅ <strong style="color:#2ecc71">Poucos pontos críticos.</strong> Ainda vale agendar — é gratuito.';document.getElementById('msgScoreTexto').innerHTML=msg;}
+document.getElementById('formRelatorio').addEventListener('submit',function(e){e.preventDefault();var s=calcScore();document.getElementById('secao-formulario').style.display='none';document.getElementById('tela-sucesso').style.display='block';document.getElementById('tela-sucesso').scrollIntoView({behavior:'smooth'});showResult(s);});
+document.getElementById('cnpj').addEventListener('input',function(e){var v=e.target.value.replace(/\D/g,'');if(v.length>14)v=v.slice(0,14);if(v.length>12)v=v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d)/,'$1.$2.$3/$4-$5');else if(v.length>8)v=v.replace(/^(\d{2})(\d{3})(\d{3})(\d)/,'$1.$2.$3/$4');else if(v.length>5)v=v.replace(/^(\d{2})(\d{3})(\d)/,'$1.$2.$3');else if(v.length>2)v=v.replace(/^(\d{2})(\d)/,'$1.$2');e.target.value=v;});
+document.getElementById('whatsapp').addEventListener('input',function(e){var v=e.target.value.replace(/\D/g,'');if(v.length>11)v=v.slice(0,11);if(v.length>6)v=v.replace(/^(\d{2})(\d{5})(\d)/,'($1) $2-$3');else if(v.length>2)v=v.replace(/^(\d{2})(\d)/,'($1) $2');e.target.value=v;});
+</script>
  <!-- ===== TELA PÓS-PAGAMENTO COM SCORE (FORMA A) ===== -->
   <section id="tela-sucesso" style="display:none; max-width:750px; margin:0 auto; padding:60px 20px; text-align:center;">
 
