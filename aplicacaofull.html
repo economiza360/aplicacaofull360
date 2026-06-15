@@ -1071,170 +1071,174 @@ document.getElementById('whatsapp').addEventListener('input',function(e){var v=e
     toggleSub('tem_divida', 'sub_divida');
 
     // ===== CÁLCULO DE PONTUAÇÃO =====
-    function calcularScore() {
-      let scores = { b1: 0, b2: 0, b3: 0, b4: 0, b5: 0, b6: 0, b7: 0 };
+   function calcularEconomia() {
+    let economiaAnual = 0;
+    let restituicaoTotal = 0;
+    let detalhes = [];
 
-      // BLOCO 1: Plano de Saúde (máx 100)
-      if (document.getElementById('plano_saude').value === 'sim') {
-        scores.b1 += 20; // Tem plano
+    // ========== BLOCO 1 - PLANO DE SAÚDE ==========
+    const temPlano = document.querySelector('select[name="plano_saude"]')?.value;
+    const valorPlano = parseFloat(document.querySelector('select[name="valor_plano"]')?.value) || 0;
+    const tempoPlano = document.querySelector('select[name="tempo_plano"]')?.value;
 
-        const mensalidade = document.getElementById('plano_mensalidade').value;
-        if (mensalidade === '1k-3k') scores.b1 += 5;
-        else if (mensalidade === '3k-7k') scores.b1 += 15;
-        else if (mensalidade === '7k-12k') scores.b1 += 35;
-        else if (mensalidade === '12k+') scores.b1 += 50;
+    if (temPlano === 'sim' && valorPlano > 0 && tempoPlano) {
+        let percentualReducao = 0;
+        let percentualAbate = 0;
 
-        const tempo = document.getElementById('plano_tempo').value;
-        if (tempo === '1-3') scores.b1 += 5;
-        else if (tempo === '4-6') scores.b1 += 7;
-        else if (tempo === '5-8') scores.b1 += 14;
-        else if (tempo === '10+') scores.b1 += 20;
-      }
-      if (scores.b1 > 100) scores.b1 = 100;
+        if (tempoPlano === '3-5') {
+            percentualReducao = 0.18;
+            percentualAbate = 0.25;
+        } else if (tempoPlano === '4-6') {
+            percentualReducao = 0.23;
+            percentualAbate = 0.21;
+        } else if (tempoPlano === '5-8') {
+            percentualReducao = 0.27;
+            percentualAbate = 0.19;
+        } else if (tempoPlano === '10+') {
+            percentualReducao = 0.35;
+            percentualAbate = 0.25;
+        }
 
-      // BLOCO 2: Energia (máx 100)
-      const energia = document.getElementById('energia').value;
-      if (energia === '1k-3k') scores.b2 = 10;
-      else if (energia === '3k-5k') scores.b2 = 30;
-      else if (energia === '5k-10k') scores.b2 = 40;
-      else if (energia === '10k-15k') scores.b2 = 50;
-      else if (energia === '15k+') scores.b2 = 100;
+        if (percentualReducao > 0) {
+            const reducaoMensal = valorPlano * percentualReducao;
+            const economiaAnualSaude = reducaoMensal * 12;
+            const restituicaoBruta = reducaoMensal * 36;
+            const restituicaoLiquida = restituicaoBruta - (restituicaoBruta * percentualAbate);
 
-      // BLOCO 3: Fornecedores (máx 50)
-      if (document.getElementById('tem_fornecedores').value === 'sim') {
-        const qtdForn = document.getElementById('qtd_fornecedores').value;
-        if (qtdForn === '1-2') scores.b3 = 15;
-        else if (qtdForn === '3-5') scores.b3 = 25;
-        else if (qtdForn === '6+') scores.b3 = 50;
-      }
+            economiaAnual += economiaAnualSaude;
+            restituicaoTotal += restituicaoLiquida;
 
-      // BLOCO 4: Financiamentos (máx 50)
-      if (document.getElementById('tem_financiamento').value === 'sim') {
-        const qtdFin = document.getElementById('qtd_financiamento').value;
-        if (qtdFin === '1-2') scores.b4 = 15;
-        else if (qtdFin === '3-5') scores.b4 = 25;
-        else if (qtdFin === '6+') scores.b4 = 50;
-      }
-
-      // BLOCO 5: CLT (máx 60)
-      if (document.getElementById('tem_clt').value === 'sim') {
-        const qtdClt = document.getElementById('qtd_clt').value;
-        if (qtdClt === '10-30') scores.b5 = 15;
-        else if (qtdClt === '31-60') scores.b5 = 25;
-        else if (qtdClt === '61+') scores.b5 = 60;
-      }
-
-      // BLOCO 6: Dívida Ativa (máx 40)
-      if (document.getElementById('tem_divida').value === 'sim') {
-        const divida = document.getElementById('valor_divida').value;
-        if (divida === 'ate-50k') scores.b6 = 5;
-        else if (divida === '50k-100k') scores.b6 = 10;
-        else if (divida === '101k-499k') scores.b6 = 15;
-        else if (divida === '500k-999k') scores.b6 = 30;
-        else if (divida === '1m+') scores.b6 = 40;
-      }
-
-      // BLOCO 7: Revisão Tributária (máx 60)
-      const revisao = document.getElementById('revisao_tributaria').value;
-      if (revisao === '1ano') scores.b7 = 10;
-      else if (revisao === '2anos') scores.b7 = 20;
-      else if (revisao === '5anos') scores.b7 = 40;
-      else if (revisao === 'nunca') scores.b7 = 60;
-
-      return scores;
+            detalhes.push({
+                bloco: 'Plano de Saúde',
+                parcelaAtual: valorPlano,
+                parcelaNova: valorPlano - reducaoMensal,
+                reducaoMensal: reducaoMensal,
+                economiaAnual: economiaAnualSaude,
+                restituicao: restituicaoLiquida,
+                percentual: (percentualReducao * 100) + '%'
+            });
+        }
     }
 
-    // ===== EXIBIR RESULTADO =====
-    function exibirResultado(scores) {
-      const maximos = { b1: 100, b2: 100, b3: 50, b4: 50, b5: 60, b6: 40, b7: 60 };
-      const total = scores.b1 + scores.b2 + scores.b3 + scores.b4 + scores.b5 + scores.b6 + scores.b7;
-      const maxTotal = 460;
+    // ========== BLOCO 2 - ENERGIA ==========
+    const temEnergia = document.querySelector('select[name="energia"]')?.value;
+    const valorEnergia = parseFloat(document.querySelector('select[name="valor_energia"]')?.value) || 0;
 
-      // Score total
-      document.getElementById('scoreTotalDisplay').textContent = total;
-      const pctTotal = (total / maxTotal) * 100;
+    if (temEnergia === 'sim' && valorEnergia > 0) {
+        const reducaoEnergia = valorEnergia * 0.20;
+        const economiaAnualEnergia = reducaoEnergia * 12;
 
-      setTimeout(() => {
-        document.getElementById('barraTotal').style.width = pctTotal + '%';
-      }, 300);
+        economiaAnual += economiaAnualEnergia;
 
-      // Nível
-      let nivel = '';
-      let cor = '';
-      if (pctTotal >= 70) { nivel = '🔴 POTENCIAL MUITO ALTO DE ECONOMIA'; cor = '#ff4444'; }
-      else if (pctTotal >= 50) { nivel = '🟠 POTENCIAL ALTO DE ECONOMIA'; cor = '#e8491d'; }
-      else if (pctTotal >= 30) { nivel = '🟡 POTENCIAL MODERADO DE ECONOMIA'; cor = '#f1c40f'; }
-      else { nivel = '🟢 POTENCIAL BAIXO (mas ainda há oportunidades)'; cor = '#2ecc71'; }
-
-      document.getElementById('nivelTexto').textContent = nivel;
-      document.getElementById('nivelTexto').style.color = cor;
-
-      // Barras por bloco
-      for (let i = 1; i <= 7; i++) {
-        const key = 'b' + i;
-        const max = maximos[key];
-        const pct = (scores[key] / max) * 100;
-        document.getElementById('scoreBloco' + i).textContent = scores[key] + '/' + max;
-        setTimeout(() => {
-          document.getElementById('barraBloco' + i).style.width = pct + '%';
-        }, 300 + (i * 150));
-      }
-
-      // Mensagem personalizada
-      let msg = '';
-      if (pctTotal >= 70) {
-        msg = '⚠️ <strong style="color:#ff4444;">Atenção:</strong> Sua empresa apresenta um potencial muito alto de economia. Isso significa que há valores significativos sendo perdidos em múltiplas áreas. A reunião de diagnóstico gratuita é essencial para montar um plano de recuperação imediata. <strong style="color:#e8491d;">Empresas com esse perfil costumam recuperar de R$ 30 mil a R$ 80 mil por ano.</strong>';
-      } else if (pctTotal >= 50) {
-        msg = '📊 Sua empresa tem <strong style="color:#e8491d;">alto potencial de economia</strong>. Existem áreas com oportunidades claras de redução de custos e recuperação de valores. Na reunião gratuita, nosso especialista vai detalhar exatamente onde agir primeiro. <strong style="color:#e8491d;">Empresas com esse perfil recuperam em média R$ 25 mil a R$ 50 mil por ano.</strong>';
-      } else if (pctTotal >= 30) {
-        msg = '📈 Sua empresa apresenta <strong style="color:#f1c40f;">potencial moderado de economia</strong>. Existem pontos de melhoria que, quando ajustados, geram impacto direto no lucro. Na reunião gratuita, vamos priorizar as ações de maior retorno. <strong style="color:#e8491d;">Mesmo empresas nessa faixa costumam economizar R$ 10 mil a R$ 25 mil por ano.</strong>';
-      } else {
-        msg = '✅ Sua empresa apresenta <strong style="color:#2ecc71;">poucos pontos críticos</strong> — o que é ótimo! Ainda assim, a reunião de diagnóstico pode revelar oportunidades ocultas que não aparecem nos números iniciais. <strong style="color:#e8491d;">Vale agendar — é gratuita e sem compromisso.</strong>';
-      }
-
-      document.getElementById('msgScoreTexto').innerHTML = msg;
+        detalhes.push({
+            bloco: 'Energia',
+            parcelaAtual: valorEnergia,
+            reducaoMensal: reducaoEnergia,
+            economiaAnual: economiaAnualEnergia,
+            percentual: '20%'
+        });
     }
 
-    // ===== MOSTRAR TELA DE SUCESSO =====
-    function mostrarTelaSucesso(scores) {
-      document.getElementById('formulario').style.display = 'none';
-      document.getElementById('tela-sucesso').style.display = 'block';
-      document.getElementById('tela-sucesso').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      exibirResultado(scores);
+    // ========== BLOCO 3 - TELECOM ==========
+    const temTelecom = document.querySelector('select[name="telecom"]')?.value;
+    const valorTelecom = parseFloat(document.querySelector('select[name="valor_telecom"]')?.value) || 0;
+
+    if (temTelecom === 'sim' && valorTelecom > 0) {
+        const reducaoTelecom = valorTelecom * 0.20;
+        const economiaAnualTelecom = reducaoTelecom * 12;
+        economiaAnual += economiaAnualTelecom;
+        detalhes.push({ bloco: 'Telecom', reducaoMensal: reducaoTelecom, economiaAnual: economiaAnualTelecom, percentual: '20%' });
     }
 
-    // ===== MÁSCARA CNPJ =====
-    document.getElementById('cnpj').addEventListener('input', function(e) {
-      let v = e.target.value.replace(/\D/g, '');
-      if (v.length > 14) v = v.slice(0, 14);
-      if (v.length > 12) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{1,2})/, '$1.$2.$3/$4-$5');
-      else if (v.length > 8) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{1,4})/, '$1.$2.$3/$4');
-      else if (v.length > 5) v = v.replace(/^(\d{2})(\d{3})(\d{1,3})/, '$1.$2.$3');
-      else if (v.length > 2) v = v.replace(/^(\d{2})(\d{1,3})/, '$1.$2');
-      e.target.value = v;
+    // ========== BLOCO 4 - CONTRATOS/FORNECEDORES ==========
+    const temContratos = document.querySelector('select[name="contratos"]')?.value;
+    const valorContratos = parseFloat(document.querySelector('select[name="valor_contratos"]')?.value) || 0;
+
+    if (temContratos === 'sim' && valorContratos > 0) {
+        const reducaoContratos = valorContratos * 0.20;
+        const economiaAnualContratos = reducaoContratos * 12;
+        economiaAnual += economiaAnualContratos;
+        detalhes.push({ bloco: 'Contratos/Fornecedores', reducaoMensal: reducaoContratos, economiaAnual: economiaAnualContratos, percentual: '20%' });
+    }
+
+    // ========== BLOCO 5 - DÍVIDAS ==========
+    const temDivida = document.querySelector('select[name="divida"]')?.value;
+    const valorDivida = parseFloat(document.querySelector('select[name="valor_divida"]')?.value) || 0;
+
+    if (temDivida === 'sim' && valorDivida > 0) {
+        const reducaoDivida = valorDivida * 0.25;
+        const economiaAnualDivida = reducaoDivida * 12;
+        economiaAnual += economiaAnualDivida;
+        detalhes.push({ bloco: 'Dívidas', reducaoMensal: reducaoDivida, economiaAnual: economiaAnualDivida, percentual: '25%' });
+    }
+
+    // ========== BLOCO 6 - TRIBUTOS ==========
+    const temTributo = document.querySelector('select[name="tributos"]')?.value;
+    if (temTributo === 'sim') {
+        detalhes.push({ bloco: 'Tributos', economiaAnual: 0, percentual: 'Previsão de redução de 20%', semValor: true });
+    }
+
+    // ========== BLOCO 7 - FOLHA/RH ==========
+    const temFolha = document.querySelector('select[name="folha"]')?.value;
+    if (temFolha === 'sim') {
+        detalhes.push({ bloco: 'Folha/RH', economiaAnual: 0, percentual: 'Previsão de redução de 20%', semValor: true });
+    }
+
+    // ========== TOTAL GERAL ==========
+    const totalGeral = economiaAnual + restituicaoTotal;
+
+    // ========== MONTAR RELATÓRIO ==========
+    let html = '<div style="padding:30px;">';
+    html += '<h2 style="color:#e8491d;text-align:center;margin-bottom:5px;">📊 RELATÓRIO DE ECONOMIA ESTIMADA</h2>';
+    html += '<p style="text-align:center;color:#888;margin-bottom:30px;">Projeção baseada nas informações fornecidas</p>';
+
+    detalhes.forEach(function(d) {
+        html += '<div style="background:#1a1a1a;border-radius:10px;padding:20px;margin-bottom:15px;border-left:4px solid #e8491d;">';
+        html += '<h3 style="color:#e8491d;margin:0 0 10px 0;">🔹 ' + d.bloco + '</h3>';
+
+        if (d.semValor) {
+            html += '<p style="color:#ccc;">⚡ ' + d.percentual + ' — valores serão apurados na consultoria</p>';
+        } else {
+            html += '<p style="color:#ccc;margin:5px 0;">Redução estimada: <strong style="color:#4CAF50;">' + d.percentual + '</strong></p>';
+            if (d.reducaoMensal) {
+                html += '<p style="color:#ccc;margin:5px 0;">Economia mensal: <strong style="color:#4CAF50;">R$ ' + d.reducaoMensal.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</strong></p>';
+            }
+            html += '<p style="color:#ccc;margin:5px 0;">Economia anual: <strong style="color:#4CAF50;">R$ ' + d.economiaAnual.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</strong></p>';
+            if (d.restituicao) {
+                html += '<p style="color:#ccc;margin:5px 0;">💰 Restituição (últimos 36 meses): <strong style="color:#FFD700;">R$ ' + d.restituicao.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</strong></p>';
+            }
+        }
+        html += '</div>';
     });
 
-    // ===== MÁSCARA WHATSAPP =====
-    document.getElementById('whatsapp').addEventListener('input', function(e) {
-      let v = e.target.value.replace(/\D/g, '');
-      if (v.length > 11) v = v.slice(0, 11);
-      if (v.length > 6) v = v.replace(/^(\d{2})(\d{5})(\d{1,4})/, '($1) $2-$3');
-      else if (v.length > 2) v = v.replace(/^(\d{2})(\d{1,5})/, '($1) $2');
-      e.target.value = v;
-    });
+    // RESUMO FINAL
+    html += '<div style="background:linear-gradient(135deg,#1a1a1a,#2a1a0a);border-radius:12px;padding:25px;margin-top:25px;border:2px solid #e8491d;text-align:center;">';
+    html += '<h2 style="color:#e8491d;margin:0 0 15px 0;">🏆 RESUMO TOTAL</h2>';
+    html += '<div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">';
+    html += '<div><p style="color:#888;margin:0;font-size:13px;">ECONOMIA ANUAL</p><p style="color:#4CAF50;font-size:28px;font-weight:800;margin:5px 0;">R$ ' + economiaAnual.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</p></div>';
+    if (restituicaoTotal > 0) {
+        html += '<div><p style="color:#888;margin:0;font-size:13px;">RESTITUIÇÃO</p><p style="color:#FFD700;font-size:28px;font-weight:800;margin:5px 0;">R$ ' + restituicaoTotal.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</p></div>';
+    }
+    html += '<div><p style="color:#888;margin:0;font-size:13px;">TOTAL 1º ANO</p><p style="color:#e8491d;font-size:32px;font-weight:800;margin:5px 0;">R$ ' + totalGeral.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</p></div>';
+    html += '</div>';
 
-    // ===== SUBMIT =====
-    document.getElementById('formRelatorio').addEventListener('submit', function(e) {
-      e.preventDefault();
+    if (restituicaoTotal > 0) {
+        html += '<p style="color:#888;font-size:12px;margin-top:15px;">* Restituição referente aos últimos 36 meses já com abatimentos aplicados</p>';
+    }
+    html += '</div>';
 
-      // Calcula os scores
-      const scores = calcularScore();
+    html += '<div style="text-align:center;margin-top:25px;">';
+    html += '<p style="color:#ccc;font-size:15px;">Quer transformar essa projeção em economia real?</p>';
+    html += '<a href="https://wa.me/5511999999999?text=Quero%20saber%20mais%20sobre%20a%20economia%20de%20R$' + totalGeral.toFixed(0) + '" target="_blank" style="display:inline-block;background:#25D366;color:#fff;padding:15px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;margin-top:10px;">📱 FALAR COM CONSULTOR</a>';
+    html += '</div>';
 
-      // Aqui integra com gateway PIX
-      // Após confirmação, chame: mostrarTelaSucesso(scores);
+    html += '</div>';
 
-      // SIMULAÇÃO (remova quando integrar pagamento real):
-      mostrarTelaSucesso(scores);
-    });
-
-  </script>
+    // Exibir resultado
+    const resultadoDiv = document.getElementById('resultado-economia');
+    if (resultadoDiv) {
+        resultadoDiv.innerHTML = html;
+        resultadoDiv.style.display = 'block';
+        resultadoDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+}
