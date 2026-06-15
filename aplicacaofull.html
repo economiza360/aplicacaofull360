@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório de Eficiência Financeira | Economiza 360</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* ===== CORES DA MARCA EZ360 ===== */
+    /* Laranja principal: #e8491d */
+    /* Laranja claro (hover/destaque): #ff5722 */
+    /* Branco: #ffffff */
+    /* Fundo escuro: #0a0a0a */
+    /* Cinza escuro cards: #111111 */
+    /* Verde resultado: #2ecc71 */
+
+    /* ===== BARRA TOPO URGÊNCIA ===== */
+    .top-bar {
+      background: #e8491d;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+      animation: pulse-bar 2s infinite;
+    }
+
+    @keyframes pulse-bar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(232, 73, 29, 0.15);
+      border: 1px solid #e8491d;
+      color: #e8491d;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .hero h1 span {
+      color: #e8491d;
+    }
+
+    .hero .sub {
+      font-size: 19px;
+      color: #bbb;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .hero .sub strong {
+      color: #fff;
+    }
+
+    /* ===== BOTÃO CTA ===== */
+    .cta-btn {
+      display: inline-block;
+      background: #e8491d;
+      color: #fff;
+      padding: 18px 50px;
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      background: #ff5722;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(232, 73, 29, 0.4);
+    }
+
+    .cta-sub {
+      font-size: 14px;
+      color: #888;
+      margin-top: 12px;
+    }
+
+    .cta-sub strong {
+      color: #e8491d;
+    }
+
+    /* ===== PROVA SOCIAL NÚMEROS ===== */
+    .proof-numbers {
+      max-width: 900px;
+      margin: 50px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+    .proof-item {
+      text-align: center;
+    }
+
+    .proof-item .number {
+      font-size: 42px;
+      font-weight: 800;
+      color: #e8491d;
+    }
+
+    .proof-item .label {
+      font-size: 14px;
+      color: #999;
+      margin-top: 5px;
+    }
+
+    /* ===== SEPARADOR ===== */
+    .divider {
+      width: 80px;
+      height: 3px;
+      background: #e8491d;
+      margin: 60px auto;
+      border-radius: 10px;
+    }
+
+    /* ===== FRASE IMPACTO ===== */
+    .impact-phrase {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .impact-phrase h2 {
+      font-size: 28px;
+      font-weight: 700;
+      font-style: italic;
+      color: #fff;
+    }
+
+    .impact-phrase h2 span {
+      color: #e8491d;
+    }
+
+    .impact-phrase p {
+      font-size: 17px;
+      color: #aaa;
+      margin-top: 15px;
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero .sub {
+        font-size: 16px;
+      }
+
+      .proof-numbers {
+        gap: 30px;
+      }
+
+      .proof-item .number {
+        font-size: 32px;
+      }
+
+      .cta-btn {
+        padding: 16px 35px;
+        font-size: 18px;
+      }
+
+      .impact-phrase h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE URGÊNCIA TOPO -->
+  <div class="top-bar">
+    🔥 Oferta por tempo limitado: Relatório completo por apenas R$ 19,99 (de R$ 497)
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">+ de 4.700 empresas já analisadas</div>
+
+    <h1>
+      Descubra Agora Quanto Dinheiro<br>
+      Sua Empresa Está <span>Perdendo Sem Saber</span>
+    </h1>
+
+    <p class="sub">
+      Relatório completo de eficiência financeira + benchmark nacional.<br>
+      Resultado em <strong>menos de 3 minutos</strong>. Para empresas de qualquer porte.
+    </p>
+
+    <a href="#formulario" class="cta-btn">Gerar Meu Relatório por R$ 19,99</a>
+
+    <p class="cta-sub">
+      De <strong><s>R$ 497</s></strong> por apenas <strong>R$ 19,99</strong> — Garantia total ou seu dinheiro de volta
+    </p>
+  </section>
+
+  <!-- PROVA SOCIAL EM NÚMEROS -->
+  <div class="proof-numbers">
+    <div class="proof-item">
+      <div class="number">4.700+</div>
+      <div class="label">empresas analisadas</div>
+    </div>
+    <div class="proof-item">
+      <div class="number">R$ 47M+</div>
+      <div class="label">em desperdícios identificados</div>
+    </div>
+    <div class="proof-item">
+      <div class="number">5</div>
+      <div class="label">dimensões analisadas</div>
+    </div>
+    <div class="proof-item">
+      <div class="number">R$ 87mil</div>
+      <div class="label">economia média anual por empresa</div>
+    </div>
+  </div>
+
+  <!-- SEPARADOR -->
+  <div class="divider"></div>
+
+  <!-- FRASE DE IMPACTO -->
+  <section class="impact-phrase">
+    <h2>
+      <span>Não é sobre faturar mais.</span><br>
+      É sobre parar de perder.
+    </h2>
+    <p>
+      O dinheiro que vaza todo mês em ineficiências operacionais não aparece no DRE.
+      Não aparece no fluxo de caixa.<br><br>
+      <strong style="color:#fff;">Mas aparece no lucro que nunca chega.</strong><br><br>
+      Este relatório mostra <strong style="color:#e8491d;">onde está o vazamento.</strong><br>
+      Em 3 minutos. Por R$ 19,99. E depois, numa reunião rápida, te mostramos como recuperar.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+ <!-- ===== COMO FUNCIONA ===== -->
+  <section style="max-width:900px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">
+      Como Funciona?
+    </h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">
+      3 passos simples. Menos de 3 minutos.
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+
+      <!-- Passo 1 -->
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:35px 25px; text-align:center; width:250px;">
+        <div style="background:#e8491d; color:#fff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; margin:0 auto 20px;">1</div>
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:10px;">Preencha o Formulário</h3>
+        <p style="color:#999; font-size:14px;">Dados básicos da sua empresa. Sem complicação. Leva 2 minutos.</p>
+      </div>
+
+      <!-- Passo 2 -->
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:35px 25px; text-align:center; width:250px;">
+        <div style="background:#e8491d; color:#fff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; margin:0 auto 20px;">2</div>
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:10px;">Receba o Relatório</h3>
+        <p style="color:#999; font-size:14px;">Diagnóstico com score, benchmark nacional e estimativa de perdas. Direto no WhatsApp e no e-mail.</p>
+      </div>
+
+      <!-- Passo 3 -->
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:35px 25px; text-align:center; width:250px;">
+        <div style="background:#e8491d; color:#fff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; margin:0 auto 20px;">3</div>
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:10px;">Agende a Reunião</h3>
+        <p style="color:#999; font-size:14px;">Um especialista detalha cada área e mostra exatamente como recuperar o dinheiro perdido.</p>
+      </div>
+
+    </div>
+
+    <!-- CTA intermediário -->
+    <div style="text-align:center; margin-top:45px;">
+      <a href="#formulario" class="cta-btn" style="font-size:18px; padding:16px 40px;">Quero Meu Relatório Agora</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 5 ÁREAS DE VAZAMENTO ===== -->
+  <section style="max-width:900px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">
+      Onde Sua Empresa Está <span style="color:#e8491d;">Perdendo Dinheiro?</span>
+    </h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">
+      Analisamos 5 dimensões críticas que drenam o caixa sem você perceber.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+
+      <!-- Financeiro -->
+      <div style="background:#111; border-left:4px solid #e8491d; border-radius:8px; padding:25px; width:calc(50% - 20px); min-width:280px;">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">💰 Financeiro</h3>
+        <p style="color:#999; font-size:14px;">Cobranças duplicadas, tarifas bancárias ocultas, juros desnecessários, créditos não aproveitados.</p>
+      </div>
+
+      <!-- Tributário -->
+      <div style="background:#111; border-left:4px solid #e8491d; border-radius:8px; padding:25px; width:calc(50% - 20px); min-width:280px;">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">📋 Tributário</h3>
+        <p style="color:#999; font-size:14px;">Regime tributário errado, créditos fiscais perdidos, impostos pagos a mais, obrigações em atraso.</p>
+      </div>
+
+      <!-- Trabalhista -->
+      <div style="background:#111; border-left:4px solid #e8491d; border-radius:8px; padding:25px; width:calc(50% - 20px); min-width:280px;">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">👥 Trabalhista</h3>
+        <p style="color:#999; font-size:14px;">Passivos ocultos, benefícios mal estruturados, riscos de ações, folha inflada.</p>
+      </div>
+
+      <!-- Operacional -->
+      <div style="background:#111; border-left:4px solid #e8491d; border-radius:8px; padding:25px; width:calc(50% - 20px); min-width:280px;">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">⚙️ Operacional</h3>
+        <p style="color:#999; font-size:14px;">Processos ineficientes, retrabalho, desperdício de tempo, gargalos invisíveis.</p>
+      </div>
+
+      <!-- Tecnologia -->
+      <div style="background:#111; border-left:4px solid #e8491d; border-radius:8px; padding:25px; width:calc(50% - 20px); min-width:280px;">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">🖥️ Tecnologia</h3>
+        <p style="color:#999; font-size:14px;">Ferramentas subutilizadas, licenças desnecessárias, falta de automação, sistemas desconectados.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== ANCORAGEM: PREÇOS RISCADOS ===== -->
+  <section style="max-width:1000px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">
+      Quanto Custaria Fazer Isso <span style="color:#e8491d;">Sozinho?</span>
+    </h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">
+      Para descobrir e corrigir perdas financeiras, o caminho tradicional é este:
+    </p>
+
+    <div style="display:flex; gap:40px; flex-wrap:wrap; justify-content:center; align-items:stretch;">
+
+      <!-- COLUNA ESQUERDA: PREÇOS RISCADOS -->
+      <div style="background:#111; border:1px solid #333; border-radius:12px; padding:40px 30px; flex:1; min-width:320px; max-width:460px;">
+        <h3 style="font-size:20px; font-weight:800; color:#ff6b6b; text-align:center; margin-bottom:30px;">
+          ❌ Caminho Tradicional
+        </h3>
+
+        <table style="width:100%; border-collapse:collapse;">
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:12px 0; color:#ccc; font-size:15px;">Consultoria especializada</td>
+            <td style="padding:12px 0; text-align:right;">
+              <span style="text-decoration:line-through; color:#ff6b6b; font-size:16px; font-weight:600;">R$ 30.000</span>
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:12px 0; color:#ccc; font-size:15px;">Tecnologia (implantação)</td>
+            <td style="padding:12px 0; text-align:right;">
+              <span style="text-decoration:line-through; color:#ff6b6b; font-size:16px; font-weight:600;">R$ 15.000</span>
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:12px 0; color:#ccc; font-size:15px;">Tecnologia (suporte/ano)</td>
+            <td style="padding:12px 0; text-align:right;">
+              <span style="text-decoration:line-through; color:#ff6b6b; font-size:16px; font-weight:600;">R$ 24.000</span>
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:12px 0; color:#ccc; font-size:15px;">Financeiro próprio</td>
+            <td style="padding:12px 0; text-align:right;">
+              <span style="text-decoration:line-through; color:#ff6b6b; font-size:16px; font-weight:600;">R$ 84.000/ano</span>
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:12px 0; color:#ccc; font-size:15px;">Jurídico próprio</td>
+            <td style="padding:12px 0; text-align:right;">
+              <span style="text-decoration:line-through; color:#ff6b6b; font-size:16px; font-weight:600;">R$ 84.000/ano</span>
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:12px 0; color:#ccc; font-size:15px;">RH próprio</td>
+            <td style="padding:12px 0; text-align:right;">
+              <span style="text-decoration:line-through; color:#ff6b6b; font-size:16px; font-weight:600;">R$ 84.000/ano</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 0; color:#ccc; font-size:15px;">TI próprio</td>
+            <td style="padding:12px 0; text-align:right;">
+              <span style="text-decoration:line-through; color:#ff6b6b; font-size:16px; font-weight:600;">R$ 84.000/ano</span>
+            </td>
+          </tr>
+        </table>
+
+        <div style="margin-top:30px; padding-top:20px; border-top:2px solid #333; text-align:center;">
+          <p style="color:#ff6b6b; font-size:14px; font-weight:600;">Custo só para DESCOBRIR o problema:</p>
+          <p style="text-decoration:line-through; color:#ff6b6b; font-size:28px; font-weight:800;">R$ 45.000</p>
+          <p style="color:#ff6b6b; font-size:14px; font-weight:600; margin-top:15px;">Custo total anual:</p>
+          <p style="text-decoration:line-through; color:#ff6b6b; font-size:28px; font-weight:800;">R$ 405.000</p>
+          <p style="color:#666; font-size:13px; margin-top:15px;">+ operação parada por 90 a 180 dias</p>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA: EZ360 -->
+      <div style="background:linear-gradient(135deg, #1a1208, #111); border:2px solid #e8491d; border-radius:12px; padding:40px 30px; flex:1; min-width:320px; max-width:460px; position:relative;">
+
+        <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:#e8491d; color:#fff; padding:5px 20px; border-radius:50px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:1px;">
+          Recomendado
+        </div>
+
+        <h3 style="font-size:20px; font-weight:800; color:#e8491d; text-align:center; margin-bottom:30px;">
+          ✅ Economiza 360
+        </h3>
+
+        <div style="text-align:center; margin-bottom:30px;">
+          <p style="color:#999; font-size:14px;">Para descobrir o tamanho da perda:</p>
+          <p style="color:#e8491d; font-size:48px; font-weight:800; margin:10px 0;">R$ 19,99</p>
+          <p style="color:#666; font-size:13px;">Relatório completo + benchmark + score</p>
+        </div>
+
+        <div style="text-align:center; margin-bottom:30px; padding:20px; background:rgba(232,73,29,0.08); border-radius:8px;">
+          <p style="color:#999; font-size:14px;">Para resolver e recuperar o dinheiro:</p>
+          <p style="color:#e8491d; font-size:28px; font-weight:800; margin:10px 0;">Modelo de Parceria</p>
+          <p style="color:#666; font-size:13px;">Você paga conforme o resultado gerado pela EZ360</p>
+        </div>
+
+        <div style="text-align:center; margin-bottom:25px;">
+          <p style="color:#ccc; font-size:15px; margin-bottom:5px;">Empresas como a sua recuperam em média:</p>
+          <p style="color:#fff; font-size:24px; font-weight:800;">R$ 25.000 a R$ 50.000</p>
+        </div>
+
+        <ul style="list-style:none; padding:0;">
+          <li style="color:#ccc; font-size:14px; padding:8px 0; border-bottom:1px solid #2a1a0a;">✅ Sem consultoria de R$ 30 mil</li>
+          <li style="color:#ccc; font-size:14px; padding:8px 0; border-bottom:1px solid #2a1a0a;">✅ Sem operação parada</li>
+          <li style="color:#ccc; font-size:14px; padding:8px 0; border-bottom:1px solid #2a1a0a;">✅ Sem contratar time interno</li>
+          <li style="color:#ccc; font-size:14px; padding:8px 0; border-bottom:1px solid #2a1a0a;">✅ Sem risco financeiro</li>
+          <li style="color:#ccc; font-size:14px; padding:8px 0; border-bottom:1px solid #2a1a0a;">✅ Diagnóstico gratuito com especialista</li>
+          <li style="color:#ccc; font-size:14px; padding:8px 0;">✅ Você só paga no resultado</li>
+        </ul>
+
+        <div style="text-align:center; margin-top:30px;">
+          <a href="#formulario" class="cta-btn" style="font-size:18px; padding:16px 40px;">
+            Gerar Meu Relatório Agora
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FRASE FINAL DA SEÇÃO -->
+    <div style="text-align:center; margin-top:50px;">
+      <p style="font-size:22px; font-weight:700; color:#fff;">
+        De <span style="text-decoration:line-through; color:#ff6b6b;">R$ 405.000</span> para
+        <span style="color:#e8491d; font-size:26px; font-weight:800;">R$ 19,99 + pagamento por resultado.</span>
+      </p>
+      <p style="color:#888; font-size:15px; margin-top:10px;">Sem risco. Sem custo fixo. Sem surpresas.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+  <!-- ===== ANTES E DEPOIS ===== -->
+  <section style="max-width:900px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">
+      Antes e Depois da <span style="color:#e8491d;">Economiza 360</span>
+    </h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">
+      Veja o que muda quando você para de perder dinheiro no escuro.
+    </p>
+
+    <div style="display:flex; gap:30px; flex-wrap:wrap; justify-content:center;">
+
+      <!-- ANTES -->
+      <div style="background:#1a0a0a; border:2px solid #ff6b6b; border-radius:12px; padding:35px 30px; flex:1; min-width:300px; max-width:420px;">
+        <h3 style="color:#ff6b6b; font-size:20px; font-weight:800; text-align:center; margin-bottom:25px;">
+          ❌ Antes do Relatório
+        </h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a1a;">
+            😰 Não sabe quanto está perdendo por mês
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a1a;">
+            😰 Paga impostos a mais sem perceber
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a1a;">
+            😰 Tem passivos ocultos acumulando
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a1a;">
+            😰 Processos internos sangram dinheiro
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a1a;">
+            😰 Ferramentas pagas e subutilizadas
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0;">
+            😰 Sensação de que fatura muito e sobra pouco
+          </li>
+        </ul>
+      </div>
+
+      <!-- DEPOIS -->
+      <div style="background:#1a1208; border:2px solid #e8491d; border-radius:12px; padding:35px 30px; flex:1; min-width:300px; max-width:420px;">
+        <h3 style="color:#e8491d; font-size:20px; font-weight:800; text-align:center; margin-bottom:25px;">
+          ✅ Depois do Relatório + Diagnóstico
+        </h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a0a;">
+            🎯 Sabe exatamente onde cada real está indo
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a0a;">
+            🎯 Paga apenas o que realmente deve
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a0a;">
+            🎯 Passivos identificados e tratados
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a0a;">
+            🎯 Processos otimizados e enxutos
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0; border-bottom:1px solid #2a1a0a;">
+            🎯 Só paga por ferramenta que usa de verdade
+          </li>
+          <li style="color:#ccc; font-size:15px; padding:10px 0;">
+            🎯 Lucro real aparece no caixa todo mês
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== DEPOIMENTOS ===== -->
+  <section style="max-width:900px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">
+      Quem Já Usou, <span style="color:#e8491d;">Comprova</span>
+    </h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">
+      Veja o que empresários como você estão dizendo.
+    </p>
+
+    <div style="display:flex; gap:30px; flex-wrap:wrap; justify-content:center;">
+
+      <!-- Depoimento 1 -->
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:30px; flex:1; min-width:280px; max-width:420px; position:relative;">
+        <div style="font-size:48px; color:#e8491d; position:absolute; top:15px; left:20px; opacity:0.3;">"</div>
+        <div style="display:flex; align-items:center; gap:15px; margin-bottom:20px;">
+          <div style="width:50px; height:50px; background:#e8491d; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:#fff;">R</div>
+          <div>
+            <p style="font-weight:700; font-size:15px; color:#fff;">Ricardo Mendes</p>
+            <p style="font-size:12px; color:#888;">CEO — Distribuidora MendesPack</p>
+          </div>
+        </div>
+        <p style="color:#ccc; font-size:15px; line-height:1.7; font-style:italic;">
+          "Achei que minha empresa estava saudável. O relatório mostrou que eu estava deixando <strong style="color:#e8491d;">R$ 38 mil por ano</strong> na mesa. Na reunião de diagnóstico, o especialista me explicou exatamente o que fazer. Em 60 dias já recuperamos mais de R$ 12 mil."
+        </p>
+        <div style="margin-top:15px;">
+          <span style="color:#f1c40f; font-size:18px;">★★★★★</span>
+        </div>
+      </div>
+
+      <!-- Depoimento 2 -->
+      <div style="background:#111; border:1px solid #222; border-radius:12px; padding:30px; flex:1; min-width:280px; max-width:420px; position:relative;">
+        <div style="font-size:48px; color:#e8491d; position:absolute; top:15px; left:20px; opacity:0.3;">"</div>
+        <div style="display:flex; align-items:center; gap:15px; margin-bottom:20px;">
+          <div style="width:50px; height:50px; background:#ff5722; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:#fff;">C</div>
+          <div>
+            <p style="font-weight:700; font-size:15px; color:#fff;">Camila Ferreira</p>
+            <p style="font-size:12px; color:#888;">Diretora Financeira — Grupo Vértice</p>
+          </div>
+        </div>
+        <p style="color:#ccc; font-size:15px; line-height:1.7; font-style:italic;">
+          "Por R$ 19,99 eu descobri que pagávamos <strong style="color:#e8491d;">R$ 7 mil a mais de impostos por mês</strong>. Isso é quase R$ 85 mil por ano. Na reunião, o plano foi direto ao ponto: em 3 semanas já ajustamos tudo. Melhor investimento que já fiz."
+        </p>
+        <div style="margin-top:15px;">
+          <span style="color:#f1c40f; font-size:18px;">★★★★★</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Depoimento 3 (destaque) -->
+    <div style="background:#111; border:1px solid #e8491d; border-radius:12px; padding:30px; max-width:700px; margin:30px auto 0; position:relative;">
+      <div style="font-size:48px; color:#e8491d; position:absolute; top:15px; left:20px; opacity:0.3;">"</div>
+      <div style="display:flex; align-items:center; gap:15px; margin-bottom:20px;">
+        <div style="width:50px; height:50px; background:#f39c12; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:#fff;">M</div>
+        <div>
+          <p style="font-weight:700; font-size:15px; color:#fff;">Marcos Oliveira</p>
+          <p style="font-size:12px; color:#888;">Sócio-fundador — Oliveira & Associados (Advocacia)</p>
+        </div>
+      </div>
+      <p style="color:#ccc; font-size:15px; line-height:1.7; font-style:italic;">
+        "Eu ia contratar uma consultoria por R$ 30 mil. Antes de assinar, fiz o relatório da Economiza 360. <strong style="color:#e8491d;">Descobri problemas que nem a consultoria tinha identificado.</strong> O diagnóstico gratuito foi esclarecedor. Economizei os R$ 30 mil da consultoria e ainda recuperei R$ 42 mil em créditos tributários. Sem exagero: <strong style="color:#e8491d;">mudou minha operação.</strong>"
+      </p>
+      <div style="margin-top:15px;">
+        <span style="color:#f1c40f; font-size:18px;">★★★★★</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== BENEFÍCIOS FINAIS ===== -->
+  <section style="max-width:900px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">
+      O Que Você Recebe por <span style="color:#e8491d;">R$ 19,99</span>
+    </h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">
+      Tudo isso em menos de 3 minutos. Sem complicação.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+
+      <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; width:calc(33% - 20px); min-width:250px; text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">📊</div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:8px;">Relatório Completo</h3>
+        <p style="color:#999; font-size:13px;">Diagnóstico das 5 áreas que mais drenam dinheiro da sua empresa.</p>
+      </div>
+
+      <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; width:calc(33% - 20px); min-width:250px; text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">🏆</div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:8px;">Score de Eficiência</h3>
+        <p style="color:#999; font-size:13px;">Nota de 0 a 100 mostrando o nível de eficiência da sua operação comparado ao mercado.</p>
+      </div>
+
+      <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; width:calc(33% - 20px); min-width:250px; text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">📈</div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:8px;">Benchmark Nacional</h3>
+        <p style="color:#999; font-size:13px;">Compare sua empresa com mais de 4.700 negócios do mesmo setor e porte.</p>
+      </div>
+
+      <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; width:calc(33% - 20px); min-width:250px; text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">💰</div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:8px;">Estimativa de Perda</h3>
+        <p style="color:#999; font-size:13px;">Valor estimado de quanto sua empresa está perdendo por mês e por ano.</p>
+      </div>
+
+      <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; width:calc(33% - 20px); min-width:250px; text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">🗓️</div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:8px;">Diagnóstico Gratuito</h3>
+        <p style="color:#999; font-size:13px;">Reunião com especialista que detalha cada área e monta o plano de ação para recuperar seu dinheiro.</p>
+      </div>
+
+      <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; width:calc(33% - 20px); min-width:250px; text-align:center;">
+        <div style="font-size:36px; margin-bottom:12px;">🔒</div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:8px;">Dados Protegidos</h3>
+        <p style="color:#999; font-size:13px;">Seus dados são criptografados e protegidos pela LGPD. Não compartilhamos com terceiros. Nunca.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== GARANTIA ===== -->
+  <section style="max-width:700px; margin:0 auto; padding:0 20px 60px;">
+    <div style="background:linear-gradient(135deg, #1a1208, #111); border:2px solid #e8491d; border-radius:16px; padding:45px 35px; text-align:center; position:relative;">
+
+      <div style="position:absolute; top:-16px; left:50%; transform:translateX(-50%); background:#e8491d; color:#fff; padding:6px 22px; border-radius:50px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:1px;">
+        Garantia Incondicional
+      </div>
+
+      <div style="font-size:64px; margin-bottom:20px;">🛡️</div>
+
+      <h2 style="font-size:26px; font-weight:800; margin-bottom:15px; color:#fff;">
+        Risco Zero. Garantia de 7 Dias.
+      </h2>
+
+      <p style="color:#ccc; font-size:16px; line-height:1.8; max-width:550px; margin:0 auto 25px;">
+        Se você gerar o relatório e não enxergar nenhum valor,
+        <strong style="color:#e8491d;">devolvemos 100% do seu dinheiro.</strong><br><br>
+        Sem burocracia. Sem perguntas. Sem letras miúdas.<br><br>
+        Além disso, o diagnóstico com nosso especialista é <strong style="color:#e8491d;">totalmente gratuito</strong> — onde ele vai detalhar de forma direta cada área de gargalo, quanto você está perdendo e quanto pode economizar.
+      </p>
+
+      <p style="color:#e8491d; font-size:18px; font-weight:700;">
+        Você não tem absolutamente nada a perder.
+      </p>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== CTA INTERMEDIÁRIO FORTE ===== -->
+  <section style="max-width:800px; margin:0 auto; padding:0 20px 60px; text-align:center;">
+    <h2 style="font-size:28px; font-weight:800; margin-bottom:15px;">
+      Sua Empresa Pode Estar Perdendo <span style="color:#e8491d;">R$ 25 mil a R$ 50 mil Por Ano</span>
+    </h2>
+    <p style="color:#999; font-size:17px; margin-bottom:10px;">
+      O relatório mostra o tamanho do problema.
+    </p>
+    <p style="color:#ccc; font-size:17px; margin-bottom:30px;">
+      O diagnóstico gratuito mostra <strong style="color:#e8491d;">como recuperar.</strong>
+    </p>
+
+    <a href="#formulario" class="cta-btn" style="font-size:20px; padding:18px 50px;">
+      Gerar Relatório por R$ 19,99
+    </a>
+
+    <p class="cta-sub" style="margin-top:15px;">
+      Depois de gerar, você é direcionado ao WhatsApp para agendar seu diagnóstico gratuito.<br>
+      <strong style="color:#e8491d;">Sem compromisso. Sem risco.</strong>
+    </p>
+  </section>
+
+  <div class="divider"></div>
+  <!-- ===== FAQ ===== -->
+  <section style="max-width:750px; margin:0 auto; padding:0 20px 60px;">
+    <h2 style="text-align:center; font-size:32px; font-weight:800; margin-bottom:15px;">
+      Perguntas <span style="color:#e8491d;">Frequentes</span>
+    </h2>
+    <p style="text-align:center; color:#999; font-size:16px; margin-bottom:50px;">
+      Tudo o que você precisa saber antes de gerar seu relatório.
+    </p>
+
+    <!-- Pergunta 1 -->
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;">
+      <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">
+        📌 O que exatamente eu recebo por R$ 19,99?
+      </h3>
+      <p style="color:#999; font-size:14px; line-height:1.7;">
+        Você recebe um relatório de eficiência financeira da sua empresa, com score de 0 a 100, benchmark comparativo com mais de 4.700 empresas, estimativa de perdas anuais e identificação das áreas que mais drenam dinheiro do seu caixa. Depois, na reunião de diagnóstico — que é totalmente gratuita — nosso especialista detalha cada área com profundidade e monta um plano de ação personalizado.
+      </p>
+    </div>
+
+    <!-- Pergunta 2 -->
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;">
+      <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">
+        📌 Como funciona a reunião de diagnóstico?
+      </h3>
+      <p style="color:#999; font-size:14px; line-height:1.7;">
+        Após gerar o relatório, você agenda uma reunião gratuita com nosso especialista. Nela, interpretamos os dados, mostramos exatamente onde estão as perdas e apresentamos um plano de ação completo para recuperar o dinheiro. Tudo sem compromisso. Se fizer sentido para os dois lados, seguimos juntos.
+      </p>
+    </div>
+
+    <!-- Pergunta 3 -->
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;">
+      <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">
+        📌 Quanto custa para vocês resolverem o problema?
+      </h3>
+      <p style="color:#999; font-size:14px; line-height:1.7;">
+        A Economiza 360 atua no modelo de parceria. Após o diagnóstico e a criação do plano operacional, nossa equipe entra em ação. O valor é definido de forma personalizada, de acordo com o potencial de economia e restituição da sua empresa. Em outras palavras: <strong style="color:#e8491d;">você paga conforme o resultado gerado pela EZ360.</strong>
+      </p>
+    </div>
+
+    <!-- Pergunta 4 -->
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;">
+      <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">
+        📌 Qualquer empresa pode usar?
+      </h3>
+      <p style="color:#999; font-size:14px; line-height:1.7;">
+        Sim. Funciona para empresas de qualquer porte e setor: comércio, serviços, indústria, tecnologia, saúde, educação, advocacia, contabilidade, entre outros. Se você tem CNPJ e fatura, o relatório funciona para você.
+      </p>
+    </div>
+
+    <!-- Pergunta 5 -->
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;">
+      <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">
+        📌 Meus dados estão seguros?
+      </h3>
+      <p style="color:#999; font-size:14px; line-height:1.7;">
+        100% seguros. Utilizamos criptografia de ponta e seus dados são usados exclusivamente para gerar o relatório. Não compartilhamos informações com terceiros. Nunca. Em hipótese alguma. Seguimos rigorosamente a <strong style="color:#e8491d;">LGPD (Lei Geral de Proteção de Dados)</strong>.
+      </p>
+    </div>
+
+    <!-- Pergunta 6 -->
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px; margin-bottom:15px;">
+      <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">
+        📌 Como funciona o pagamento?
+      </h3>
+      <p style="color:#999; font-size:14px; line-height:1.7;">
+        O pagamento é feito via <strong style="color:#e8491d;">PIX</strong> — rápido, seguro e sem taxas. Após a confirmação (que é instantânea), você é redirecionado para nosso WhatsApp, onde recebe o relatório diretamente na conversa e também por e-mail.
+      </p>
+    </div>
+
+    <!-- Pergunta 7 -->
+    <div style="background:#111; border:1px solid #222; border-radius:10px; padding:25px;">
+      <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:10px;">
+        📌 E se eu não gostar do diagnóstico?
+      </h3>
+      <p style="color:#999; font-size:14px; line-height:1.7;">
+        Nosso diagnóstico é realizado <strong style="color:#e8491d;">totalmente sem custo</strong> por um dos nossos especialistas. Nele, detalhamos de forma clara e direta cada área de gargalo da sua empresa: quanto você está perdendo, quanto pode economizar, quanto pode recuperar e como aumentar seu lucro. O plano é estruturado e real — sem promessas genéricas. Se mesmo assim não fizer sentido, você não paga nada além dos R$ 19,99 do relatório (que têm garantia de 7 dias).
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== FORMULÁRIO COMPLETO ===== -->
+  <section id="formulario" style="max-width:700px; margin:0 auto; padding:0 20px 60px;">
+
+    <!-- Header do formulário -->
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="display:inline-block; background:rgba(232,73,29,0.15); border:1px solid #e8491d; color:#e8491d; padding:6px 18px; border-radius:50px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">
+        Último Passo
+      </div>
+      <h2 style="font-size:32px; font-weight:800; margin-bottom:10px;">
+        Gere Seu Relatório <span style="color:#e8491d;">Agora</span>
+      </h2>
+      <p style="color:#999; font-size:16px; margin-bottom:5px;">
+        Preencha os dados abaixo para o sistema calcular com exatidão.
+      </p>
+      <p style="color:#666; font-size:13px;">
+        🔒 Seus dados estão protegidos pela LGPD e não serão compartilhados.
+      </p>
+    </div>
+
+    <!-- Formulário -->
+    <form id="formRelatorio" style="background:#111; border:1px solid #222; border-radius:16px; padding:40px 30px;">
+
+      <!-- Estilo dos inputs -->
+      <style>
+        .form-group {
+          margin-bottom: 22px;
+        }
+
+        .form-group label {
+          display: block;
+          font-size: 14px;
+          font-weight: 600;
+          color: #ccc;
+          margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+          width: 100%;
+          padding: 14px 16px;
+          background: #1a1a1a;
+          border: 1px solid #333;
+          border-radius: 8px;
+          color: #fff;
+          font-size: 15px;
+          transition: border-color 0.3s;
+          -webkit-appearance: none;
+          appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+          outline: none;
+          border-color: #e8491d;
+        }
+
+        .form-group input::placeholder {
+          color: #555;
+        }
+
+        .form-group select {
+          cursor: pointer;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6.5 6.5-6.5'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 16px center;
+          padding-right: 40px;
+        }
+
+        .form-group select option {
+          background: #1a1a1a;
+          color: #fff;
+        }
+
+        .form-row {
+          display: flex;
+          gap: 15px;
+        }
+
+        .form-row .form-group {
+          flex: 1;
+        }
+
+        @media (max-width: 600px) {
+          .form-row {
+            flex-direction: column;
+            gap: 0;
+          }
+        }
+      </style>
+
+      <!-- CNPJ -->
+      <div class="form-group">
+        <label>CNPJ da Empresa *</label>
+        <input type="text" name="cnpj" placeholder="00.000.000/0000-00" required>
+      </div>
+
+      <!-- Linha: Setor + Estado -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Setor de Atuação *</label>
+          <select name="setor" required>
+            <option value="">Selecione o setor</option>
+            <option value="comercio">Comércio</option>
+            <option value="servicos">Serviços</option>
+            <option value="industria">Indústria</option>
+            <option value="tecnologia">Tecnologia</option>
+            <option value="saude">Saúde</option>
+            <option value="educacao">Educação</option>
+            <option value="construcao">Construção Civil</option>
+            <option value="alimentacao">Alimentação</option>
+            <option value="transporte">Transporte e Logística</option>
+            <option value="agronegocio">Agronegócio</option>
+            <option value="advocacia">Advocacia</option>
+            <option value="contabilidade">Contabilidade</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Estado *</label>
+          <select name="estado" required>
+            <option value="">Selecione</option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AP">AP</option>
+            <option value="AM">AM</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RS">RS</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="SC">SC</option>
+            <option value="SP">SP</option>
+            <option value="SE">SE</option>
+            <option value="TO">TO</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Área da Empresa -->
+      <div class="form-group">
+        <label>Área Principal da Empresa *</label>
+        <select name="area" required>
+          <option value="">Selecione a área</option>
+          <option value="vendas">Vendas</option>
+          <option value="financeiro">Financeiro</option>
+          <option value="operacional">Operacional</option>
+          <option value="administrativo">Administrativo</option>
+          <option value="rh">Recursos Humanos</option>
+          <option value="marketing">Marketing</option>
+          <option value="ti">Tecnologia da Informação</option>
+          <option value="juridico">Jurídico</option>
+          <option value="multiplas">Múltiplas Áreas</option>
+        </select>
+      </div>
+
+      <!-- Linha: Colaboradores + Faturamento -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Número de Colaboradores *</label>
+          <select name="colaboradores" required>
+            <option value="">Selecione</option>
+            <option value="1-5">1 a 5</option>
+            <option value="6-15">6 a 15</option>
+            <option value="16-30">16 a 30</option>
+            <option value="31-50">31 a 50</option>
+            <option value="51-100">51 a 100</option>
+            <option value="101-200">101 a 200</option>
+            <option value="201-500">201 a 500</option>
+            <option value="500+">Mais de 500</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Faturamento Mensal *</label>
+          <select name="faturamento" required>
+            <option value="">Selecione</option>
+            <option value="ate-50k">Até R$ 50 mil</option>
+            <option value="50k-100k">R$ 50 mil a R$ 100 mil</option>
+            <option value="100k-300k">R$ 100 mil a R$ 300 mil</option>
+            <option value="300k-500k">R$ 300 mil a R$ 500 mil</option>
+            <option value="500k-1m">R$ 500 mil a R$ 1 milhão</option>
+            <option value="1m-5m">R$ 1 milhão a R$ 5 milhões</option>
+            <option value="5m+">Acima de R$ 5 milhões</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Formato da Empresa -->
+      <div class="form-group">
+        <label>Formato da Empresa *</label>
+        <select name="formato" required>
+          <option value="">Selecione</option>
+          <option value="mei">MEI</option>
+          <option value="me">ME (Microempresa)</option>
+          <option value="epp">EPP (Empresa de Pequeno Porte)</option>
+          <option value="ltda">LTDA</option>
+          <option value="sa">S/A</option>
+          <option value="eireli">EIRELI</option>
+          <option value="slu">SLU (Sociedade Limitada Unipessoal)</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+
+      <!-- Grau de Maturidade -->
+      <div class="form-group">
+        <label>Grau de Maturidade da Gestão *</label>
+        <select name="maturidade" required>
+          <option value="">Selecione</option>
+          <option value="iniciante">Iniciante — Processos informais, sem controle claro</option>
+          <option value="basico">Básico — Alguns controles, mas muito manual</option>
+          <option value="intermediario">Intermediário — Processos definidos, mas com falhas</option>
+          <option value="avancado">Avançado — Boa gestão, busca otimização</option>
+          <option value="excelencia">Excelência — Gestão madura, foco em escala</option>
+        </select>
+      </div>
+
+      <!-- Objetivo Principal -->
+      <div class="form-group">
+        <label>Objetivo Principal *</label>
+        <select name="objetivo" required>
+          <option value="">O que você mais quer resolver?</option>
+          <option value="reduzir-custos">Reduzir custos operacionais</option>
+          <option value="recuperar-dinheiro">Recuperar dinheiro perdido</option>
+          <option value="otimizar-processos">Otimizar processos internos</option>
+          <option value="pagar-menos-imposto">Pagar menos impostos (legalmente)</option>
+          <option value="organizar-gestao">Organizar a gestão financeira</option>
+          <option value="escalar">Escalar a operação sem aumentar custos</option>
+          <option value="todos">Todos os itens acima</option>
+        </select>
+      </div>
+
+      <!-- Separador visual -->
+      <div style="width:100%; height:1px; background:#222; margin:30px 0;"></div>
+
+      <p style="color:#999; font-size:13px; text-align:center; margin-bottom:25px;">
+        📧 Dados de contato para envio do relatório:
+      </p>
+
+      <!-- Linha: Email + WhatsApp -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>E-mail Corporativo *</label>
+          <input type="email" name="email" placeholder="seu@empresa.com.br" required>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp *</label>
+          <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" required>
+        </div>
+      </div>
+
+      <!-- Box de preço + pagamento -->
+      <div style="background:#1a1208; border:2px solid #e8491d; border-radius:12px; padding:25px; text-align:center; margin-top:10px; margin-bottom:25px;">
+        <p style="color:#999; font-size:13px; margin-bottom:5px;">Investimento único:</p>
+        <p style="margin-bottom:5px;">
+          <span style="text-decoration:line-through; color:#ff6b6b; font-size:18px;">R$ 497,00</span>
+        </p>
+        <p style="color:#e8491d; font-size:42px; font-weight:800; margin-bottom:5px;">R$ 19,99</p>
+        <p style="color:#999; font-size:13px; margin-bottom:15px;">Pagamento via PIX — confirmação instantânea</p>
+        <div style="display:inline-block; background:rgba(232,73,29,0.1); border:1px solid #e8491d; border-radius:8px; padding:8px 20px;">
+          <p style="color:#e8491d; font-size:13px; font-weight:600;">🛡️ Garantia de 7 dias ou seu dinheiro de volta</p>
+        </div>
+      </div>
+
+      <!-- Botão de envio -->
+      <button type="submit" id="btnSubmit" style="
+        width:100%;
+        padding:20px;
+        background:#e8491d;
+        color:#fff;
+        font-size:20px;
+        font-weight:800;
+        border:none;
+        border-radius:10px;
+        cursor:pointer;
+        transition:all 0.3s;
+        letter-spacing:0.5px;
+      " onmouseover="this.style.background='#ff5722'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(232,73,29,0.4)';"
+         onmouseout="this.style.background='#e8491d'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        🚀 GERAR MEU RELATÓRIO AGORA
+      </button>
+
+      <p style="text-align:center; color:#666; font-size:12px; margin-top:15px;">
+        Após o pagamento, você recebe o relatório no WhatsApp e no e-mail.<br>
+        Em seguida, agenda seu diagnóstico gratuito com nosso especialista.
+      </p>
+
+    </form>
+
+    <!-- Selos abaixo do formulário -->
+    <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:30px;">
+      <div style="text-align:center;">
+        <div style="font-size:28px;">🔒</div>
+        <p style="color:#666; font-size:11px; margin-top:5px;">Dados<br>Protegidos</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:28px;">⚡</div>
+        <p style="color:#666; font-size:11px; margin-top:5px;">Resultado<br>Imediato</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:28px;">💚</div>
+        <p style="color:#666; font-size:11px; margin-top:5px;">PIX<br>Instantâneo</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:28px;">🛡️</div>
+        <p style="color:#666; font-size:11px; margin-top:5px;">Garantia<br>7 Dias</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== TELA PÓS-PAGAMENTO (FORMA A) ===== -->
+  <!-- Esta tela fica OCULTA e aparece após confirmação do pagamento -->
+  <section id="tela-sucesso" style="display:none; max-width:650px; margin:0 auto; padding:60px 20px; text-align:center;">
+
+    <div style="background:#111; border:2px solid #e8491d; border-radius:16px; padding:50px 35px;">
+
+      <!-- Ícone de sucesso -->
+      <div style="font-size:72px; margin-bottom:20px;">✅</div>
+
+      <h2 style="font-size:28px; font-weight:800; color:#fff; margin-bottom:10px;">
+        Pagamento Confirmado!
+      </h2>
+
+      <p style="color:#e8491d; font-size:18px; font-weight:700; margin-bottom:25px;">
+        Seu relatório está pronto.
+      </p>
+
+      <p style="color:#ccc; font-size:16px; line-height:1.7; margin-bottom:15px;">
+        Agora clique no botão abaixo para receber seu relatório no WhatsApp e já agendar sua <strong style="color:#e8491d;">reunião de diagnóstico gratuita</strong> com nosso especialista.
+      </p>
+
+      <p style="color:#999; font-size:14px; margin-bottom:30px;">
+        📧 Uma cópia também será enviada para o e-mail informado.
+      </p>
+
+      <!-- BOTÃO WHATSAPP COM MENSAGEM PRONTA -->
+      <a href="https://wa.me/5511926089182?text=Oi%2C%20acabei%20de%20gerar%20meu%20relat%C3%B3rio%20de%20efici%C3%AAncia%20financeira%20e%20quero%20agendar%20minha%20reuni%C3%A3o%20de%20diagn%C3%B3stico%20gratuito." target="_blank" style="
+        display:inline-block;
+        background:#25D366;
+        color:#fff;
+        padding:20px 50px;
+        font-size:20px;
+        font-weight:800;
+        text-decoration:none;
+        border-radius:10px;
+        transition:all 0.3s;
+      " onmouseover="this.style.background='#1da851'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(37,211,102,0.4)';"
+         onmouseout="this.style.background='#25D366'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        📱 Receber Relatório e Agendar Diagnóstico
+      </a>
+
+      <p style="color:#666; font-size:13px; margin-top:20px;">
+        O WhatsApp vai abrir com a mensagem pronta. É só enviar!
+      </p>
+
+      <!-- O que acontece agora -->
+      <div style="margin-top:40px; padding-top:30px; border-top:1px solid #222;">
+        <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:20px;">
+          📋 Próximos passos:
+        </h3>
+        <div style="display:flex; flex-direction:column; gap:15px; text-align:left; max-width:400px; margin:0 auto;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="background:#e8491d; color:#fff; min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800;">1</div>
+            <p style="color:#ccc; font-size:14px;">Clique no botão acima e envie a mensagem</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="background:#e8491d; color:#fff; min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800;">2</div>
+            <p style="color:#ccc; font-size:14px;">Receba seu relatório completo no WhatsApp e no e-mail</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="background:#e8491d; color:#fff; min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800;">3</div>
+            <p style="color:#ccc; font-size:14px;">Agende sua reunião de diagnóstico gratuita</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="background:#e8491d; color:#fff; min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800;">4</div>
+            <p style="color:#ccc; font-size:14px;">Descubra como recuperar o dinheiro que está perdendo</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SCRIPT PÓS-PAGAMENTO (FORMA A) ===== -->
+  <script>
+    // Função para mostrar a tela de sucesso após pagamento
+    // Chame esta função quando o PIX for confirmado
+    function mostrarTelaSucesso() {
+      // Esconde o formulário
+      document.getElementById('formulario').style.display = 'none';
+
+      // Mostra a tela de sucesso
+      document.getElementById('tela-sucesso').style.display = 'block';
+
+      // Rola a página até a tela de sucesso
+      document.getElementById('tela-sucesso').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Exemplo: Se quiser testar manualmente, descomente a linha abaixo:
+    // setTimeout(mostrarTelaSucesso, 3000);
+
+    // ===== MÁSCARA CNPJ =====
+    document.querySelector('input[name="cnpj"]').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 14) v = v.slice(0, 14);
+      if (v.length > 12) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{1,2})/, '$1.$2.$3/$4-$5');
+      else if (v.length > 8) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{1,4})/, '$1.$2.$3/$4');
+      else if (v.length > 5) v = v.replace(/^(\d{2})(\d{3})(\d{1,3})/, '$1.$2.$3');
+      else if (v.length > 2) v = v.replace(/^(\d{2})(\d{1,3})/, '$1.$2');
+      e.target.value = v;
+    });
+
+    // ===== MÁSCARA WHATSAPP =====
+    document.querySelector('input[name="whatsapp"]').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) v = v.replace(/^(\d{2})(\d{5})(\d{1,4})/, '($1) $2-$3');
+      else if (v.length > 2) v = v.replace(/^(\d{2})(\d{1,5})/, '($1) $2');
+      e.target.value = v;
+    });
+
+    // ===== SUBMIT DO FORMULÁRIO =====
+    document.getElementById('formRelatorio').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Aqui você integra com seu backend / gateway de pagamento PIX
+      // Após confirmação do PIX, chame: mostrarTelaSucesso();
+
+      // SIMULAÇÃO (remova quando integrar o pagamento real):
+      alert('Formulário enviado! Aqui você integra o pagamento PIX. Após confirmação, a tela de sucesso aparece automaticamente.');
+      mostrarTelaSucesso();
+    });
+  </script>
+
+  <!-- ===== CTA FINAL DE EMERGÊNCIA ===== -->
+  <section style="max-width:800px; margin:0 auto; padding:0 20px 60px; text-align:center;">
+    <h2 style="font-size:26px; font-weight:800; margin-bottom:15px;">
+      Cada Dia Que Passa, Sua Empresa <span style="color:#e8491d;">Perde Mais Dinheiro</span>
+    </h2>
+    <p style="color:#999; font-size:17px; line-height:1.7; margin-bottom:10px;">
+      O dinheiro que vazou ontem não volta.<br>
+      O que está vazando hoje pode ser estancado.
+    </p>
+    <p style="color:#ccc; font-size:17px; margin-bottom:30px;">
+      <strong style="color:#fff;">Por R$ 19,99</strong>, você descobre o tamanho do problema.<br>
+      No <strong style="color:#e8491d;">diagnóstico gratuito</strong>, descobre como resolver.
+    </p>
+
+    <a href="#formulario" class="cta-btn" style="font-size:20px; padding:18px 50px;">
+      Gerar Relatório Agora — R$ 19,99
+    </a>
+
+    <p style="color:#888; font-size:14px; margin-top:15px;">
+      De <s style="color:#ff6b6b;">R$ 497</s> por apenas <strong style="color:#e8491d;">R$ 19,99</strong> — Oferta por tempo limitado
+    </p>
+
+    <div style="margin-top:30px; padding:20px; background:#111; border:1px solid #222; border-radius:10px; display:inline-block;">
+      <p style="color:#ccc; font-size:15px;">
+        Prefere falar com um especialista antes?<br>
+        <a href="https://wa.me/5511926089182?text=Oi%2C%20tenho%20interesse%20no%20relat%C3%B3rio%20de%20efici%C3%AAncia%20financeira%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" style="color:#e8491d; font-weight:700; font-size:17px; text-decoration:none;">
+          📱 Chame no WhatsApp: (11) 92608-9182
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer style="background:#050505; border-top:1px solid #1a1a1a; padding:40px 20px; text-align:center;">
+    <p style="font-size:20px; font-weight:800; color:#fff; margin-bottom:5px;">Economiza 360</p>
+    <p style="color:#666; font-size:13px; margin-bottom:20px;">
+      Eficiência financeira para empresas que querem parar de perder dinheiro.
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-bottom:20px;">
+      <a href="https://wa.me/5511926089182?text=Oi%2C%20tenho%20interesse%20no%20relat%C3%B3rio%20de%20efici%C3%AAncia%20financeira%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" style="color:#e8491d; text-decoration:none; font-size:14px; font-weight:600;">
+        📱 WhatsApp: (11) 92608-9182
+      </a>
+      <a href="mailto:contato@economiza360.com.br" style="color:#999; text-decoration:none; font-size:14px;">
+        📧 contato@economiza360.com.br
+      </a>
+    </div>
+
+    <div style="width:60px; height:1px; background:#222; margin:20px auto;"></div>
+
+    <p style="color:#444; font-size:11px; line-height:1.6;">
+      © 2024–2026 Economiza 360. Todos os direitos reservados.<br>
+      Os resultados podem variar conforme o porte, setor e situação de cada empresa.<br>
+      Os dados fornecidos são utilizados exclusivamente para geração do relatório.<br>
+      Protegido pela LGPD — Lei Geral de Proteção de Dados.
+    </p>
+  </footer>
+
+</body>
+</html>
