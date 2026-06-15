@@ -776,93 +776,193 @@
       <p style="color:#999; font-size:16px;">Preencha os dados abaixo para o sistema calcular com exatidão.</p>
       <p style="color:#666; font-size:13px;">🔒 Seus dados estão protegidos pela LGPD.</p>
     </div>
-    <form id="formRelatorio" style="background:#111; border:1px solid #222; border-radius:16px; padding:40px 30px;">
+<form id="form-economia" onsubmit="event.preventDefault(); calcularEconomia();">
 
-      <div class="bloco-titulo" style="margin-top:0;"><div class="bloco-numero">📋</div><div class="bloco-nome">Dados da Empresa</div></div>
+    <!-- BLOCO 1 - PLANO DE SAÚDE -->
+    <div class="bloco-titulo"><div class="bloco-numero">1</div><div class="bloco-nome">Plano de Saúde</div></div>
+    <div class="bloco-desc">Revisão de reajustes e restituição retroativa</div>
 
-      <div class="form-group"><label>CNPJ *</label><input type="text" id="cnpj" placeholder="00.000.000/0000-00" required></div>
+    <div class="form-group">
+        <label>Possui plano de saúde?</label>
+        <select name="plano_saude" onchange="document.getElementById('sub-plano').className = this.value === 'sim' ? 'sub-perguntas ativo' : 'sub-perguntas'">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+    <div id="sub-plano" class="sub-perguntas">
+        <div class="form-group">
+            <label>Quanto paga por mês?</label>
+            <select name="valor_plano">
+                <option value="">Selecione a faixa</option>
+                <option value="1500">Até R$ 2.000</option>
+                <option value="3500">R$ 2.001 a R$ 5.000</option>
+                <option value="6000">R$ 5.001 a R$ 7.000</option>
+                <option value="8500">R$ 7.001 a R$ 10.000</option>
+                <option value="12000">Acima de R$ 10.000</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Há quanto tempo tem o plano?</label>
+            <select name="tempo_plano">
+                <option value="">Selecione</option>
+                <option value="3-5">3 a 5 anos</option>
+                <option value="4-6">4 a 6 anos</option>
+                <option value="5-8">5 a 8 anos</option>
+                <option value="10+">Mais de 10 anos</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Quantas vidas no plano?</label>
+            <select name="vidas_plano">
+                <option value="">Selecione</option>
+                <option value="1-5">1 a 5</option>
+                <option value="6-15">6 a 15</option>
+                <option value="16-50">16 a 50</option>
+                <option value="50+">Mais de 50</option>
+            </select>
+        </div>
+    </div>
 
-      <div class="form-row">
-        <div class="form-group"><label>Setor *</label><select name="setor" required><option value="">Selecione</option><option>Comércio</option><option>Serviços</option><option>Indústria</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option><option>Construção Civil</option><option>Alimentação</option><option>Transporte</option><option>Agronegócio</option><option>Advocacia</option><option>Contabilidade</option><option>Outro</option></select></div>
-        <div class="form-group"><label>Estado *</label><select name="estado" required><option value="">UF</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></div>
-      </div>
+    <!-- BLOCO 2 - ENERGIA -->
+    <div class="bloco-titulo"><div class="bloco-numero">2</div><div class="bloco-nome">Energia</div></div>
+    <div class="bloco-desc">Redução padrão de 20% na conta de energia</div>
 
-      <div class="form-group"><label>Formato *</label><select name="formato" required><option value="">Selecione</option><option>MEI</option><option>ME</option><option>EPP</option><option>LTDA</option><option>S/A</option><option>EIRELI</option><option>SLU</option><option>Outro</option></select></div>
+    <div class="form-group">
+        <label>Paga conta de energia?</label>
+        <select name="energia" onchange="document.getElementById('sub-energia').className = this.value === 'sim' ? 'sub-perguntas ativo' : 'sub-perguntas'">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+    <div id="sub-energia" class="sub-perguntas">
+        <div class="form-group">
+            <label>Quanto paga por mês?</label>
+            <select name="valor_energia">
+                <option value="">Selecione a faixa</option>
+                <option value="500">Até R$ 700</option>
+                <option value="1000">R$ 701 a R$ 1.500</option>
+                <option value="2000">R$ 1.501 a R$ 3.000</option>
+                <option value="4000">R$ 3.001 a R$ 5.000</option>
+                <option value="7000">Acima de R$ 5.000</option>
+            </select>
+        </div>
+    </div>
 
-      <div class="form-group"><label>Faturamento Mensal *</label><select name="faturamento" required><option value="">Selecione</option><option>Até R$ 50 mil</option><option>R$ 50 mil a R$ 100 mil</option><option>R$ 100 mil a R$ 300 mil</option><option>R$ 300 mil a R$ 500 mil</option><option>R$ 500 mil a R$ 1 milhão</option><option>R$ 1 milhão a R$ 5 milhões</option><option>Acima de R$ 5 milhões</option></select></div>
+    <!-- BLOCO 3 - TELECOM -->
+    <div class="bloco-titulo"><div class="bloco-numero">3</div><div class="bloco-nome">Telecom</div></div>
+    <div class="bloco-desc">Internet, telefonia e dados — redução de 20%</div>
 
-      <div style="width:100%;height:1px;background:#222;margin:30px 0;"></div>
-      <p style="color:#999;font-size:13px;text-align:center;margin-bottom:25px;">📧 Contato para envio do relatório:</p>
+    <div class="form-group">
+        <label>Tem contratos de telecom?</label>
+        <select name="telecom" onchange="document.getElementById('sub-telecom').className = this.value === 'sim' ? 'sub-perguntas ativo' : 'sub-perguntas'">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+    <div id="sub-telecom" class="sub-perguntas">
+        <div class="form-group">
+            <label>Quanto paga por mês?</label>
+            <select name="valor_telecom">
+                <option value="">Selecione a faixa</option>
+                <option value="300">Até R$ 500</option>
+                <option value="750">R$ 501 a R$ 1.000</option>
+                <option value="1500">R$ 1.001 a R$ 2.000</option>
+                <option value="3000">R$ 2.001 a R$ 5.000</option>
+                <option value="7000">Acima de R$ 5.000</option>
+            </select>
+        </div>
+    </div>
 
-      <div class="form-row">
-        <div class="form-group"><label>E-mail *</label><input type="email" name="email" placeholder="seu@empresa.com.br" required></div>
-        <div class="form-group"><label>WhatsApp *</label><input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required></div>
-      </div>
+    <!-- BLOCO 4 - CONTRATOS/FORNECEDORES -->
+    <div class="bloco-titulo"><div class="bloco-numero">4</div><div class="bloco-nome">Contratos e Fornecedores</div></div>
+    <div class="bloco-desc">Renegociação e otimização — redução média de 20%</div>
 
-      <!-- BLOCO 1: PLANO DE SAÚDE -->
-      <div class="bloco-titulo"><div class="bloco-numero">1</div><div class="bloco-nome">Plano de Saúde</div></div>
-      <p class="bloco-desc">Empresas com plano de saúde podem ter oportunidades significativas de redução.</p>
-      <div class="form-group"><label>Tem plano de saúde no CNPJ? *</label><select id="plano_saude" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
-      <div class="sub-perguntas" id="sub_plano">
-        <div class="form-group"><label>Quantas vidas?</label><input type="number" placeholder="Ex: 25"></div>
-        <div class="form-group"><label>Mensalidade total *</label><select id="plano_mensalidade"><option value="">Selecione</option><option value="1k-3k">R$ 1 mil a R$ 3 mil</option><option value="3k-7k">R$ 3 mil a R$ 7 mil</option><option value="7k-12k">R$ 7 mil a R$ 12 mil</option><option value="12k+">Acima de R$ 12 mil</option></select></div>
-        <div class="form-group"><label>Tempo de contrato *</label><select id="plano_tempo"><option value="">Selecione</option><option value="1-3">1 a 3 anos</option><option value="4-6">4 a 6 anos</option><option value="5-8">5 a 8 anos</option><option value="10+">Mais de 10 anos</option></select></div>
-      </div>
+    <div class="form-group">
+        <label>Tem contratos com fornecedores?</label>
+        <select name="contratos" onchange="document.getElementById('sub-contratos').className = this.value === 'sim' ? 'sub-perguntas ativo' : 'sub-perguntas'">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+    <div id="sub-contratos" class="sub-perguntas">
+        <div class="form-group">
+            <label>Quanto gasta por mês com fornecedores?</label>
+            <select name="valor_contratos">
+                <option value="">Selecione a faixa</option>
+                <option value="2000">Até R$ 3.000</option>
+                <option value="5000">R$ 3.001 a R$ 7.000</option>
+                <option value="10000">R$ 7.001 a R$ 15.000</option>
+                <option value="20000">R$ 15.001 a R$ 30.000</option>
+                <option value="40000">Acima de R$ 30.000</option>
+            </select>
+        </div>
+    </div>
 
-      <!-- BLOCO 2: ENERGIA -->
-      <div class="bloco-titulo"><div class="bloco-numero">2</div><div class="bloco-nome">Energia</div></div>
-      <p class="bloco-desc">Contas elevadas escondem oportunidades de economia.</p>
-      <div class="form-group"><label>Valor mensal da energia *</label><select id="energia" required><option value="">Selecione</option><option value="0">Abaixo de R$ 1 mil</option><option value="1k-3k">R$ 1 mil a R$ 3 mil</option><option value="3k-5k">R$ 3 mil a R$ 5 mil</option><option value="5k-10k">R$ 5 mil a R$ 10 mil</option><option value="10k-15k">R$ 10 mil a R$ 15 mil</option><option value="15k+">Acima de R$ 15 mil</option></select></div>
+    <!-- BLOCO 5 - DÍVIDAS -->
+    <div class="bloco-titulo"><div class="bloco-numero">5</div><div class="bloco-nome">Dívidas</div></div>
+    <div class="bloco-desc">Renegociação estratégica — economia média de 25%</div>
 
-      <!-- BLOCO 3: FORNECEDORES -->
-      <div class="bloco-titulo"><div class="bloco-numero">3</div><div class="bloco-nome">Fornecedores</div></div>
-      <p class="bloco-desc">Mais fornecedores = mais potencial de renegociação.</p>
-      <div class="form-group"><label>Tem fornecedores ativos? *</label><select id="tem_fornecedores" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
-      <div class="sub-perguntas" id="sub_fornecedores">
-        <div class="form-group"><label>Quantos? *</label><select id="qtd_fornecedores"><option value="">Selecione</option><option value="1-2">1 a 2</option><option value="3-5">3 a 5</option><option value="6+">6 ou mais</option></select></div>
-      </div>
+    <div class="form-group">
+        <label>Possui dívidas ativas?</label>
+        <select name="divida" onchange="document.getElementById('sub-divida').className = this.value === 'sim' ? 'sub-perguntas ativo' : 'sub-perguntas'">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+    <div id="sub-divida" class="sub-perguntas">
+        <div class="form-group">
+            <label>Quanto paga por mês em dívidas?</label>
+            <select name="valor_divida">
+                <option value="">Selecione a faixa</option>
+                <option value="2000">Até R$ 3.000</option>
+                <option value="5000">R$ 3.001 a R$ 7.000</option>
+                <option value="10000">R$ 7.001 a R$ 15.000</option>
+                <option value="20000">R$ 15.001 a R$ 30.000</option>
+                <option value="40000">Acima de R$ 30.000</option>
+            </select>
+        </div>
+    </div>
 
-      <!-- BLOCO 4: FINANCIAMENTOS -->
-      <div class="bloco-titulo"><div class="bloco-numero">4</div><div class="bloco-nome">Financiamentos</div></div>
-      <p class="bloco-desc">Financiamentos podem ter taxas acima do mercado.</p>
-      <div class="form-group"><label>Tem financiamento ativo? *</label><select id="tem_financiamento" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
-      <div class="sub-perguntas" id="sub_financiamento">
-        <div class="form-group"><label>Quantos? *</label><select id="qtd_financiamento"><option value="">Selecione</option><option value="1-2">1 a 2</option><option value="3-5">3 a 5</option><option value="6+">6 ou mais</option></select></div>
-      </div>
+    <!-- BLOCO 6 - TRIBUTOS -->
+    <div class="bloco-titulo"><div class="bloco-numero">6</div><div class="bloco-nome">Tributos</div></div>
+    <div class="bloco-desc">Revisão tributária — previsão de redução de 20%</div>
 
-      <!-- BLOCO 5: CLT -->
-      <div class="bloco-titulo"><div class="bloco-numero">5</div><div class="bloco-nome">Funcionários CLT</div></div>
-      <p class="bloco-desc">Folha de pagamento é uma das maiores despesas.</p>
-      <div class="form-group"><label>Tem funcionários CLT? *</label><select id="tem_clt" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
-      <div class="sub-perguntas" id="sub_clt">
-        <div class="form-group"><label>Quantos? *</label><select id="qtd_clt"><option value="">Selecione</option><option value="1-9">1 a 9</option><option value="10-30">10 a 30</option><option value="31-60">31 a 60</option><option value="61+">Mais de 61</option></select></div>
-      </div>
+    <div class="form-group">
+        <label>Deseja revisar tributos?</label>
+        <select name="tributos">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
 
-      <!-- BLOCO 6: DÍVIDA -->
-      <div class="bloco-titulo"><div class="bloco-numero">6</div><div class="bloco-nome">Dívida Ativa</div></div>
-      <p class="bloco-desc">Dívidas podem ser renegociadas com grandes descontos.</p>
-      <div class="form-group"><label>Tem dívida ativa? *</label><select id="tem_divida" required><option value="">Selecione</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
-      <div class="sub-perguntas" id="sub_divida">
-        <div class="form-group"><label>Valor aproximado *</label><select id="valor_divida"><option value="">Selecione</option><option value="ate-50k">Até R$ 50 mil</option><option value="50k-100k">R$ 50 mil a R$ 100 mil</option><option value="101k-499k">R$ 101 mil a R$ 499 mil</option><option value="500k-999k">R$ 500 mil a R$ 999 mil</option><option value="1m+">Acima de R$ 1 milhão</option></select></div>
-      </div>
+    <!-- BLOCO 7 - FOLHA/RH -->
+    <div class="bloco-titulo"><div class="bloco-numero">7</div><div class="bloco-nome">Folha de Pagamento / RH</div></div>
+    <div class="bloco-desc">Otimização de encargos — previsão de redução de 20%</div>
 
-      <!-- BLOCO 7: REVISÃO TRIBUTÁRIA -->
-      <div class="bloco-titulo"><div class="bloco-numero">7</div><div class="bloco-nome">Revisão Tributária</div></div>
-      <p class="bloco-desc">Sem revisão = impostos pagos a mais por anos.</p>
-      <div class="form-group"><label>Há quanto tempo não faz revisão? *</label><select id="revisao_tributaria" required><option value="">Selecione</option><option value="1ano">Há 1 ano</option><option value="2anos">Há 2 anos</option><option value="5anos">Há 5 anos</option><option value="nunca">Nunca fiz</option></select></div>
+    <div class="form-group">
+        <label>Deseja revisar folha/RH?</label>
+        <select name="folha">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
 
-      <!-- PREÇO + BOTÃO -->
-      <div style="width:100%;height:1px;background:#222;margin:35px 0;"></div>
-      <div style="background:#1a1208;border:2px solid #e8491d;border-radius:12px;padding:25px;text-align:center;margin-bottom:25px;">
-        <p style="color:#999;font-size:13px;margin-bottom:5px;">Investimento único:</p>
-        <p style="margin-bottom:5px;"><span style="text-decoration:line-through;color:#ff6b6b;font-size:18px;">R$ 497,00</span></p>
-        <p style="color:#e8491d;font-size:42px;font-weight:800;margin-bottom:5px;">R$ 19,99</p>
-        <p style="color:#999;font-size:13px;margin-bottom:15px;">PIX — confirmação instantânea</p>
-        <div style="display:inline-block;background:rgba(232,73,29,0.1);border:1px solid #e8491d;border-radius:8px;padding:8px 20px;"><p style="color:#e8491d;font-size:13px;font-weight:600;">🛡️ Garantia de 7 dias</p></div>
-      </div>
-      <button type="submit" style="width:100%;padding:20px;background:#e8491d;color:#fff;font-size:20px;font-weight:800;border:none;border-radius:10px;cursor:pointer;">🚀 GERAR MEU RELATÓRIO AGORA</button>
-      <p style="text-align:center;color:#666;font-size:12px;margin-top:15px;">Após pagamento, receba no WhatsApp e e-mail.</p>
-    </form>
+    <!-- BOTÃO -->
+    <div style="text-align:center; margin-top:35px;">
+        <button type="submit" style="background:linear-gradient(135deg,#e8491d,#ff6b3d);color:#fff;border:none;padding:18px 50px;font-size:18px;font-weight:800;border-radius:10px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">
+            🔍 CALCULAR MINHA ECONOMIA
+        </button>
+    </div>
+</form>
+<!-- RESULTADO -->
+<div id="resultado-economia" style="display:none; margin-top:30px;"></div>
   </section>
 
   <div class="divider"></div>
